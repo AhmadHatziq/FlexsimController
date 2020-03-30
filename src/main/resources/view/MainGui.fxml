@@ -5,7 +5,6 @@
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -48,7 +47,7 @@
                                              <Font name="System Bold" size="16.0" />
                                           </font>
                                        </Label>
-                                       <Label text="Choose rule to sequence lots for simulation. Select &quot;First-Come-First-Served&quot; to keep the sequence supplied in Actual Lot Info. ">
+                                       <Label text="Choose the lot sequencing rule(s) for the simulation to run. Please select at least one. &quot;First-Come-First-Served&quot; keeps the sequence supplied in Actual Lot Info. ">
                                           <VBox.margin>
                                              <Insets left="20.0" />
                                           </VBox.margin>
@@ -58,13 +57,16 @@
                                  <GridPane minHeight="-Infinity" minWidth="-Infinity">
                                     <columnConstraints>
                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="130.0" prefWidth="180.0" />
-                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1020.0" minWidth="10.0" prefWidth="1020.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1020.0" minWidth="10.0" prefWidth="100.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1020.0" minWidth="10.0" prefWidth="100.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1020.0" minWidth="10.0" prefWidth="100.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1020.0" minWidth="10.0" prefWidth="100.0" />
                                     </columnConstraints>
                                     <rowConstraints>
                                        <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                       <Label alignment="CENTER" contentDisplay="CENTER" text="Lot Sequencing Rule:">
+                                       <Label alignment="CENTER" contentDisplay="CENTER" text="Lot Sequencing Rule(s) to Run:">
                                           <tooltip>
                                              <Tooltip autoHide="true" style="-fx-show-delay: 0s;" text="Default is First-Come-First-Served (FCFS) in order of Actual Lot Info" />
                                           </tooltip>
@@ -72,11 +74,26 @@
                                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                           </padding>
                                        </Label>
-                                       <ChoiceBox fx:id="lotSequencingRule" prefWidth="300.0" GridPane.columnIndex="1">
+                                       <CheckBox fx:id="lotSequencingRuleFCFS" mnemonicParsing="false" text="First-Come-First-Served (Default)" GridPane.columnIndex="1">
                                           <GridPane.margin>
-                                             <Insets bottom="5.0" top="5.0" />
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                           </GridPane.margin>
-                                       </ChoiceBox>
+                                       </CheckBox>
+                                       <CheckBox fx:id="lotSequencingRuleSPT" mnemonicParsing="false" text="Shortest Processing Time" GridPane.columnIndex="2">
+                                          <GridPane.margin>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </GridPane.margin>
+                                       </CheckBox>
+                                       <CheckBox fx:id="lotSequencingRuleMJ" mnemonicParsing="false" text="Most Jobs" GridPane.columnIndex="3">
+                                          <GridPane.margin>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </GridPane.margin>
+                                       </CheckBox>
+                                       <CheckBox fx:id="lotSequencingRuleRAND" mnemonicParsing="false" text="Random" GridPane.columnIndex="4">
+                                          <GridPane.margin>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </GridPane.margin>
+                                       </CheckBox>
                                     </children>
                                     <VBox.margin>
                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
@@ -92,7 +109,7 @@
                                              <Font name="System Bold" size="16.0" />
                                           </font>
                                        </Label>
-                                       <Label text="Choose the allowable minimum BIB batch size to try for each run. A range can be run incrementally based on the step size.  Maximum BIB batch size for every run is fixed at 24.">
+                                       <Label text="Choose the allowable minimum BIB batch size to run. A range can be run incrementally based on the step size.  Maximum BIB batch size for every run is fixed at 24.">
                                           <VBox.margin>
                                              <Insets left="20.0" />
                                           </VBox.margin>

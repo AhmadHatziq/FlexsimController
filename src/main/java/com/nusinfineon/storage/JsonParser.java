@@ -1,5 +1,7 @@
 package com.nusinfineon.storage;
 
+import static com.nusinfineon.util.Directories.SAVE_FILE_NAME;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -16,7 +18,7 @@ import com.nusinfineon.core.Core;
 
 public class JsonParser {
 
-    private String filepath = "./saveFile.txt";
+    private String filepath = "./" + SAVE_FILE_NAME;
 
     /**
      * Constructor that checks if the file exists and creates a new json formatted file if it.

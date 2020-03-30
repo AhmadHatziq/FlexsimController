@@ -1,7 +1,7 @@
 package com.nusinfineon.exceptions;
 
 /**
- * Custom exception class.
+ * CustomException class
  */
 public class CustomException extends Exception {
     public CustomException(String errorMessage) {

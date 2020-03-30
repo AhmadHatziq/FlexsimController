@@ -1,4 +1,6 @@
-package com.nusinfineon.util;
+package com.nusinfineon.core.output;
+
+import static com.nusinfineon.util.Directories.PRODUCT_KEY_COST_FILE_DIR;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,8 +25,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class OutputAnalysisUtil {
-
-    private static final String PRODUCT_KEY_COST_FILE = "/output/product_key_cost.xlsx";
 
     public static void saveDailyOutputSheet(String sheetName, TreeMap<Double, Double> treeMapOfDayToOutput,
                                             Workbook excelWorkbook) {
@@ -217,7 +217,7 @@ public class OutputAnalysisUtil {
     }
 
     public static File getProductKeyCostExcelFileFromRelativeDirectory() throws IOException {
-        URL productCostFile = OutputAnalysisUtil.class.getResource(PRODUCT_KEY_COST_FILE);
+        URL productCostFile = OutputAnalysisUtil.class.getResource(PRODUCT_KEY_COST_FILE_DIR);
         File tempOutputFile = Files.createTempFile("product_key_cost_temp", ".xlsx").toFile();
         FileUtils.copyURLToFile(productCostFile, tempOutputFile);
         return tempOutputFile;

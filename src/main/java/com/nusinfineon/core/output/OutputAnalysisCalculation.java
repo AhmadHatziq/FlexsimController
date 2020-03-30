@@ -1,4 +1,4 @@
-package com.nusinfineon.util;
+package com.nusinfineon.core.output;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,5 +1,7 @@
 package com.nusinfineon.ui;
 
+import static com.nusinfineon.util.Directories.ICON_APPLICATION;
+
 import com.nusinfineon.Main;
 import com.nusinfineon.core.Core;
 import com.nusinfineon.storage.JsonParser;
@@ -15,7 +17,6 @@ import javafx.stage.Stage;
 public class UiManager implements Ui {
 
     public static final String ALERT_DIALOG_PANE_FIELD_ID = "alertDialogPane";
-    private static final String ICON_APPLICATION = "/images/icon_large.png";
     private Core core;
     private JsonParser jsonParser;
     private MainGui mainGui;

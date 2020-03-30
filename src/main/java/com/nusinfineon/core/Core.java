@@ -1,5 +1,11 @@
 package com.nusinfineon.core;
 
+import static com.nusinfineon.util.Directories.INPUT_FOLDER_NAME;
+import static com.nusinfineon.util.Directories.OUTPUT_FOLDER_NAME;
+import static com.nusinfineon.util.Directories.RAW_OUTPUT_FOLDER_NAME;
+import static com.nusinfineon.util.Directories.TABLEAU_FILE_NAMES;
+import static com.nusinfineon.util.Directories.TABLEAU_WORKBOOKS_SOURCE_DIR;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -8,13 +14,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
 
 import com.nusinfineon.Main;
 import com.nusinfineon.exceptions.CustomException;
+import com.nusinfineon.util.LotSequencingRule;
 
 public class Core {
 
@@ -24,7 +31,7 @@ public class Core {
     private String outputLocation;
     private String runSpeed;
     private String stopTime;
-    private String lotSequencingRuleString;
+    private HashMap<LotSequencingRule, Boolean> lotSequencingRules;
     private String batchSizeMinString;
     private String batchSizeMaxString;
     private String batchSizeStepString;
@@ -33,62 +40,42 @@ public class Core {
     private String trolleyLocationSelectCriteria;
     private String bibLoadOnLotCriteria;
     private boolean isModelShown;
+    private ArrayList<File> excelInputFiles;
     private ArrayList<File> excelOutputFiles;
 
     private static final Logger LOGGER = Logger.getLogger(Core.class.getName());
-    private static final String LOT_SEQUENCE_FCFS = "First-Come-First-Served (Default)";
-    private static final String LOT_SEQUENCE_SPT = "Shortest Processing Time";
-    private static final String LOT_SEQUENCE_MJ = "Most Jobs";
-    private static final String LOT_SEQUENCE_RAND = "Random";
+    private static final Boolean INIT_FCFS = true;
+    private static final Boolean INIT_SPT = false;
+    private static final Boolean INIT_MJ = false;
+    private static final Boolean INIT_RAND = false;
     private static final String INIT_RUN_SPEED = "4";
     private static final String INIT_STOP_TIME = "1140";
     private static final String INIT_MAX_BATCH_SIZE = "24";
-    private static final String INIT_MIN_BATCH_SIZE = "1";
+    private static final String INIT_MIN_BATCH_SIZE = "20";
     private static final String INIT_STEP_SIZE = "1";
     private static final String INIT_RESOURCE_SELECT_CRITERIA = "4";
     private static final String INIT_LOT_SELECTION_CRITERIA = "3";
     private static final String INIT_TROLLEY_LOCATION_SELECT_CRITERIA = "2";
     private static final String INIT_BIB_LOAD_ON_LOT_CRITERIA = "2";
 
-    private static final String OUTPUT_FOLDER_NAME = "Output";
-    private static final String RAW_OUTPUT_FOLDER_NAME = "Raw Output Excel Files";
-    private static final String TABLEAU_FILES_DIR = "/output/tableau_workbooks";
-    private static final ArrayList<String> TABLEAU_FILE_NAMES = new ArrayList<>(Arrays.asList(
-            "Daily Throughput.twb", "IBIS Utilization Rates.twb", "Stay Time.twb",
-            "Throughput.twb", "Time in System.twb", "Worth.twb"));
-
     /**
      * Main execute function to generate input files. run model and generate output file
-     * @throws IOException, CustomException, InterruptedException, DDEException
      */
     public void execute() throws IOException, CustomException {
-        // Code block handling creation of excel file for min batch size iterating
-        ExcelInputCore excelInputCore = new ExcelInputCore(inputLocation, lotSequencingRuleString, batchSizeMinString,
+        // Initialise InputCore for creation of excel files for runs iteration
+        InputCore inputCore = new InputCore(inputLocation, lotSequencingRules, batchSizeMinString,
                 batchSizeMaxString, batchSizeStepString, resourceSelectCriteria, lotSelectionCriteria,
                 trolleyLocationSelectCriteria, bibLoadOnLotCriteria);
 
-        // Initialise listener for running of simulation
+        // Initialise RunCore for running of simulation
         RunCore runCore = new RunCore(flexsimLocation, modelLocation, outputLocation, runSpeed, stopTime, isModelShown);
 
-        // Initalize OutputAnalysisCore to handle output analysis later
-        OutputAnalysisCore outputCore = new OutputAnalysisCore();
+        // Initialise OutputCore for handling output analysis
+        OutputCore outputCore = new OutputCore();
 
-        try {
-            excelInputCore.execute();
-        } catch (IOException e) {
-            LOGGER.severe("Unable to create files");
-            throw new CustomException("Error in creating temp files");
-        } catch (CustomException e) {
-            LOGGER.severe(e.getMessage());
-            throw e;
-        }
+        handleInput(inputCore);
 
-        // Extract the array of files and sizes from ExcelInputCore
-        ArrayList<File> excelInputFiles = excelInputCore.getExcelFiles();
-        ArrayList<Integer> listOfMinBatchSizes = excelInputCore.getListOfMinBatchSizes();
-        excelOutputFiles = new ArrayList<>();
-
-        runCore.executeRuns(excelInputFiles, listOfMinBatchSizes, lotSequencingRuleString, excelOutputFiles);
+        handleRuns(runCore);
 
         handleOutput(outputCore);
 
@@ -96,16 +83,60 @@ public class Core {
     }
 
     /**
-     * Used to handle processing and analysis of output
-     * @throws IOException
+     * Used to handle processing of input
      */
-    private void handleOutput(OutputAnalysisCore outputCore) throws IOException, CustomException {
+    private void handleInput(InputCore inputCore) throws CustomException {
+        try {
+            excelInputFiles = inputCore.execute();
+        } catch (IOException e) {
+            LOGGER.severe("Unable to create files");
+            throw new CustomException("Error in creating temp files");
+        } catch (CustomException e) {
+            LOGGER.severe(e.getMessage());
+            throw e;
+        }
+    }
+
+    /**
+     * Used to handle simulation runs
+     */
+    private void handleRuns(RunCore runCore) {
+        excelOutputFiles = runCore.executeRuns(excelInputFiles);
+    }
+
+    /**
+     * Used to handle processing and analysis of output
+     */
+    private void handleOutput(OutputCore outputCore) throws IOException, CustomException {
+        // Handle input files
+        File inputFile = new File(inputLocation);
+        String inputPathName = inputFile.getParent();
+        Path inputDir = Paths.get(inputPathName, INPUT_FOLDER_NAME);
+
+        // Delete and recreate Input folder if exists
+        if (!Files.exists(inputDir)) {
+            Files.createDirectory(inputDir);
+            LOGGER.info("Input directory created");
+        } else {
+            LOGGER.info("Input directory already exists");
+            FileUtils.deleteDirectory(new File(inputDir.toString()));
+            Files.createDirectory(inputDir);
+        }
+
+        // Move generated input files into Input folder
+        for (File file : excelInputFiles) {
+            String newFileName = file.getName().substring(0, file.getName().lastIndexOf("_")) + "_input.xlsx";
+            FileUtils.copyFile(file, new File(inputDir + "/" + newFileName));
+            LOGGER.info(newFileName + " created in input folder");
+        }
+
+        // Handle output files
         File outputFile = new File(outputLocation);
         String outputPathName = outputFile.getParent();
         Path outputDir = Paths.get(outputPathName, OUTPUT_FOLDER_NAME);
         Path rawOutputDir = Paths.get(outputPathName, OUTPUT_FOLDER_NAME, RAW_OUTPUT_FOLDER_NAME);
 
-        // Create folder directories
+        // Create Output folder
         if (!Files.exists(outputDir)) {
             Files.createDirectory(outputDir);
             LOGGER.info("Output directory created");
@@ -113,7 +144,7 @@ public class Core {
             LOGGER.info("Output directory already exists");
         }
 
-        // Delete and recreate raw output folder if exists
+        // Delete and recreate Raw Output folder if exists
         if (!Files.exists(rawOutputDir)) {
             Files.createDirectory(rawOutputDir);
             LOGGER.info("Raw output directory created");
@@ -136,18 +167,13 @@ public class Core {
         File destinationDirectory = new File(String.valueOf(outputDir));
 
         if (folderDirectory.list().length > 0) {
-            // Generate output statistics for all excel files in a folder
-            // OutputAnalysisCore.appendSummaryStatisticsOfFolderOFExcelFiles(folderDirectory);
-            outputCore.appendSummaryStatisticsOfFolderOFExcelFiles(folderDirectory);
+            // Execute outputCore to generate output summaries and tableau-excel-file
+            outputCore.execute(folderDirectory, destinationDirectory);
 
-            // Generate the tableau excel file from the folder of excel files (with output data appended)
-            // OutputAnalysisCore.generateExcelTableauFile(folderDirectory, destinationDirectory);
-            outputCore.generateExcelTableauFile(folderDirectory, destinationDirectory);
-
-            // Copy Tableau files from resources to output folder
+            // Copy Tableau files from resources to Output folder
             for (String fileName : TABLEAU_FILE_NAMES) {
                 try {
-                    URL file = Main.class.getResource(TABLEAU_FILES_DIR + "/" + fileName);
+                    URL file = Main.class.getResource(TABLEAU_WORKBOOKS_SOURCE_DIR + "/" + fileName);
                     File newFile = new File(destinationDirectory + "/" + fileName);
                     FileUtils.copyURLToFile(file, newFile);
                     LOGGER.info(fileName + " moved into Output folder");
@@ -158,25 +184,20 @@ public class Core {
         } else {
             throw new CustomException("Raw Output Excel Files folder is empty!");
         }
+
+        // Clear lists of files
+        excelInputFiles.clear();
+        excelOutputFiles.clear();
     }
 
     /**
      * Used to store data into core before execute and save (the json parser serializes it)
-     *
-     * @param flexsimLocation
-     * @param modelLocation
-     * @param inputLocation
-     * @param outputLocation
-     * @param runSpeed
-     * @param stopTime
-     * @param batchSizeMinString
-     * @param batchSizeMaxString
-     * @param batchSizeStepString
      */
-    public void inputData(String flexsimLocation, String modelLocation, String inputLocation,
-                          String outputLocation, String runSpeed, String stopTime, boolean isModelShown,
-                          String lotSequencingRuleString, String batchSizeMinString, String batchSizeMaxString,
-                          String batchSizeStepString, String resourceSelectCriteria, String lotSelectionCriteria,
+    public void inputData(String flexsimLocation, String modelLocation, String inputLocation, String outputLocation,
+                          String runSpeed, String stopTime, boolean isModelShown,
+                          HashMap<LotSequencingRule, Boolean> lotSequencingRules,
+                          String batchSizeMinString, String batchSizeMaxString, String batchSizeStepString,
+                          String resourceSelectCriteria, String lotSelectionCriteria,
                           String trolleyLocationSelectCriteria, String bibLoadOnLotCriteria) {
         this.flexsimLocation = flexsimLocation;
         this.modelLocation = modelLocation;
@@ -186,7 +207,7 @@ public class Core {
         this.stopTime = stopTime;
         this.isModelShown = isModelShown;
 
-        this.lotSequencingRuleString = lotSequencingRuleString;
+        this.lotSequencingRules = lotSequencingRules;
 
         this.batchSizeMinString = batchSizeMinString;
         this.batchSizeMaxString = batchSizeMaxString;
@@ -234,23 +255,15 @@ public class Core {
         return isModelShown;
     }
 
-    public ArrayList<String> getLotSequencingRulesList() {
-        ArrayList<String> rulesList = new ArrayList<>();
-
-        rulesList.add(LOT_SEQUENCE_FCFS);
-        rulesList.add(LOT_SEQUENCE_SPT);
-        rulesList.add(LOT_SEQUENCE_MJ);
-        rulesList.add(LOT_SEQUENCE_RAND);
-
-        return rulesList;
-    }
-
-    public String getLotSequencingRuleString() {
-        if (lotSequencingRuleString == null) {
-            return LOT_SEQUENCE_FCFS;
-        } else {
-            return lotSequencingRuleString;
+    public HashMap<LotSequencingRule, Boolean> getLotSequencingRules() {
+        if (lotSequencingRules == null) {
+            lotSequencingRules = new HashMap<LotSequencingRule, Boolean>();
+            lotSequencingRules.put(LotSequencingRule.FCFS, INIT_FCFS);
+            lotSequencingRules.put(LotSequencingRule.SPT, INIT_SPT);
+            lotSequencingRules.put(LotSequencingRule.MJ, INIT_MJ);
+            lotSequencingRules.put(LotSequencingRule.RAND, INIT_RAND);
         }
+        return lotSequencingRules;
     }
 
     public String getBatchSizeMinString() {

@@ -1,5 +1,7 @@
 package com.nusinfineon.core;
 
+import static com.nusinfineon.util.Directories.TABLEAU_EXCEL_FILE_NAME;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,7 +11,6 @@ import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -19,28 +20,60 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.nusinfineon.exceptions.CustomException;
-import com.nusinfineon.util.OutputAnalysisCalculation;
-import com.nusinfineon.util.OutputAnalysisUtil;
+import com.nusinfineon.core.output.OutputAnalysisCalculation;
+import com.nusinfineon.core.output.OutputAnalysisUtil;
 
-public class OutputAnalysisCore {
+public class OutputCore {
 
-    private static final Logger LOGGER = Logger.getLogger(OutputAnalysisCore.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(OutputCore.class.getName());
 
-    public OutputAnalysisCore() {
+    public OutputCore() {
         // Empty constructor
+    }
+
+    /**
+     * Main execute function of OutputCore to process output files and tableau-excel-file
+     * @throws IOException
+     * @throws CustomException
+     */
+    public void execute(File folderDirectory, File destinationDirectory) throws IOException, CustomException {
+        // Generate output statistics for all excel files in a folder
+        appendSummaryStatisticsOfFolderOFExcelFiles(folderDirectory);
+
+        // Generate the tableau excel file from the folder of excel files (with output data appended)
+        generateTableauExcelFile(folderDirectory, destinationDirectory);
+    }
+
+    /**
+     * Wrapper function to handle all files in a specified folder.
+     * @param folderDirectory Directory of a folder with excel files to be processed.
+     * @throws CustomException if argument is not a directory.
+     */
+    private void appendSummaryStatisticsOfFolderOFExcelFiles(File folderDirectory) throws IOException, CustomException {
+        if (!folderDirectory.isDirectory()) {
+            throw new CustomException(folderDirectory.toString() + " is not a directory");
+        }
+        LOGGER.info("Accessing folder: " + folderDirectory.toString());
+
+        // Process all files in the directory and append their respective summary statistics
+        for (File file: folderDirectory.listFiles()) {
+            if (file.exists() && (!file.isDirectory())) {
+                appendSummaryStatisticsOfSingleOutputExcelFile(file);
+            }
+        }
     }
 
     /**
      * Generates a single excel file to be used with Tableau. Summarizes the output file data for each excel file.
      * Saves the file into "src/main/resources/sample-output-files/tableau-excel-file/tableau-excel-file.xlsx"
      */
-    public void generateExcelTableauFile(File folderOfExcelFiles, File destinationDirectory)
+    private void generateTableauExcelFile(File folderOfExcelFiles, File destinationDirectory)
             throws IOException, CustomException {
-        LOGGER.info("Starting generateExcelTableauFile method");
+        LOGGER.info("Starting generateTableauExcelFile method");
 
         // Generate a list of excel files from the folder
         if (!folderOfExcelFiles.isDirectory()) {
-            throw new CustomException("Argument for generateExcelTableauFile() method is not a folder");
+            throw new CustomException("Argument for generateTableauExcelFile() method is not a folder");
         }
 
         ArrayList<File> excelFiles = new ArrayList<File>();
@@ -52,7 +85,7 @@ public class OutputAnalysisCore {
         LOGGER.info("No. of excel files to process: " + excelFiles.size());
 
         // Create the destination excel file
-        final File destinationFile = new File( destinationDirectory + "/tableau-excel-file.xlsx");
+        final File destinationFile = new File( destinationDirectory + "/" + TABLEAU_EXCEL_FILE_NAME);
         if (!destinationFile.exists()) {
             // Delete if there is a file present
             destinationFile.createNewFile();
@@ -412,7 +445,7 @@ public class OutputAnalysisCore {
      * @param outputExcelFile Output excel file of a single simulation run.
      * @throws IOException
      */
-    public static void appendSummaryStatisticsOfSingleOutputExcelFile(File outputExcelFile) throws IOException {
+    private void appendSummaryStatisticsOfSingleOutputExcelFile(File outputExcelFile) throws IOException {
         LOGGER.info("Starting output summary generation");
 
         // Creates a temp excel file for referencing
@@ -430,7 +463,6 @@ public class OutputAnalysisCore {
         LOGGER.info("Successfully created Workbook from temporary copy of output file");
 
         try {
-
             // ==================   Get average utilization rates of IBIS Ovens ============================================
             final String UTIL_RES_REP = "Util Res Rep";
             Sheet utilSheet = workbook.getSheet(UTIL_RES_REP);
@@ -532,25 +564,6 @@ public class OutputAnalysisCore {
             workbook.close();
             tempOutputFile.delete();
             LOGGER.info("Closed workbook and deleted temporary excel file.");
-        }
-    }
-
-    /**
-     * Wrapper function to handle all files in a specified folder.
-     * @param folderDirectory Directory of a folder with excel files to be processed.
-     * @throws CustomException if argument is not a directory.
-     */
-    public void appendSummaryStatisticsOfFolderOFExcelFiles(File folderDirectory) throws CustomException, IOException {
-        if (!folderDirectory.isDirectory()) {
-            throw new CustomException(folderDirectory.toString() + " is not a directory");
-        }
-        LOGGER.info("Accessing folder: " + folderDirectory.toString());
-
-        // Process all files in the directory and append their respective summary statistics
-        for (File file: folderDirectory.listFiles()) {
-            if (file.exists() && (!file.isDirectory())) {
-                appendSummaryStatisticsOfSingleOutputExcelFile(file);
-            }
         }
     }
 }

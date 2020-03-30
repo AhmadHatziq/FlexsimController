@@ -1,4 +1,4 @@
-package com.nusinfineon.util;
+package com.nusinfineon.core.input.LotEntry;
 
 public class GenericLotEntry extends LotEntry {
 
