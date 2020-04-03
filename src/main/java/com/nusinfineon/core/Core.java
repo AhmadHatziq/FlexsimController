@@ -3,9 +3,10 @@ package com.nusinfineon.core;
 import static com.nusinfineon.util.Directories.INPUT_FOLDER_NAME;
 import static com.nusinfineon.util.Directories.OUTPUT_FOLDER_NAME;
 import static com.nusinfineon.util.Directories.RAW_OUTPUT_FOLDER_NAME;
-import static com.nusinfineon.util.Directories.TABLEAU_FILE_NAMES;
-import static com.nusinfineon.util.Directories.TABLEAU_WORKBOOKS_SOURCE_DIR;
+import static com.nusinfineon.util.Directories.TABLEAU_WORKBOOK_NAME;
+import static com.nusinfineon.util.Directories.TABLEAU_WORKBOOK_SOURCE_DIR;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -79,13 +80,18 @@ public class Core {
 
         handleOutput(outputCore);
 
+        // Clear lists of files
+        excelInputFiles.clear();
+        excelOutputFiles.clear();
+
+        // Close Excel program
         Runtime.getRuntime().exec("cmd /c taskkill /f /im excel.exe");
     }
 
     /**
      * Used to handle processing of input
      */
-    private void handleInput(InputCore inputCore) throws CustomException {
+    private void handleInput(InputCore inputCore) throws IOException, CustomException {
         try {
             excelInputFiles = inputCore.execute();
         } catch (IOException e) {
@@ -94,6 +100,28 @@ public class Core {
         } catch (CustomException e) {
             LOGGER.severe(e.getMessage());
             throw e;
+        }
+
+        // Handle input files
+        File inputFile = new File(inputLocation);
+        String inputPathName = inputFile.getParent();
+        Path inputDir = Paths.get(inputPathName, INPUT_FOLDER_NAME);
+
+        // Clean Input folder if exists, else create
+        if (Files.exists(inputDir)) {
+            LOGGER.info("Input directory already exists");
+            FileUtils.cleanDirectory(new File(inputDir.toString()));
+            LOGGER.info("Input directory cleaned");
+        } else {
+            Files.createDirectory(inputDir);
+            LOGGER.info("Input directory created");
+        }
+
+        // Move generated input files into Input folder
+        for (File file : excelInputFiles) {
+            String newFileName = file.getName().substring(0, file.getName().lastIndexOf("_")) + "_input.xlsx";
+            FileUtils.copyFile(file, new File(inputDir + "/" + newFileName));
+            LOGGER.info(newFileName + " created in input folder");
         }
     }
 
@@ -108,50 +136,28 @@ public class Core {
      * Used to handle processing and analysis of output
      */
     private void handleOutput(OutputCore outputCore) throws IOException, CustomException {
-        // Handle input files
-        File inputFile = new File(inputLocation);
-        String inputPathName = inputFile.getParent();
-        Path inputDir = Paths.get(inputPathName, INPUT_FOLDER_NAME);
-
-        // Delete and recreate Input folder if exists
-        if (!Files.exists(inputDir)) {
-            Files.createDirectory(inputDir);
-            LOGGER.info("Input directory created");
-        } else {
-            LOGGER.info("Input directory already exists");
-            FileUtils.deleteDirectory(new File(inputDir.toString()));
-            Files.createDirectory(inputDir);
-        }
-
-        // Move generated input files into Input folder
-        for (File file : excelInputFiles) {
-            String newFileName = file.getName().substring(0, file.getName().lastIndexOf("_")) + "_input.xlsx";
-            FileUtils.copyFile(file, new File(inputDir + "/" + newFileName));
-            LOGGER.info(newFileName + " created in input folder");
-        }
-
         // Handle output files
         File outputFile = new File(outputLocation);
         String outputPathName = outputFile.getParent();
         Path outputDir = Paths.get(outputPathName, OUTPUT_FOLDER_NAME);
         Path rawOutputDir = Paths.get(outputPathName, OUTPUT_FOLDER_NAME, RAW_OUTPUT_FOLDER_NAME);
 
-        // Create Output folder
-        if (!Files.exists(outputDir)) {
+        // Create Output folder if not exist
+        if (Files.exists(outputDir)) {
+            LOGGER.info("Output directory already exists");
+        } else {
             Files.createDirectory(outputDir);
             LOGGER.info("Output directory created");
-        } else {
-            LOGGER.info("Output directory already exists");
         }
 
-        // Delete and recreate Raw Output folder if exists
-        if (!Files.exists(rawOutputDir)) {
+        // Clean Raw Output folder if exists, else create
+        if (Files.exists(rawOutputDir)) {
+            LOGGER.info("Raw output directory already exists");
+            FileUtils.cleanDirectory(new File(rawOutputDir.toString()));
+            LOGGER.info("Raw output directory cleaned");
+        } else {
             Files.createDirectory(rawOutputDir);
             LOGGER.info("Raw output directory created");
-        } else {
-            LOGGER.info("Raw output directory already exists");
-            FileUtils.deleteDirectory(new File(rawOutputDir.toString()));
-            Files.createDirectory(rawOutputDir);
         }
 
         // Move raw output files into Raw Output folder
@@ -170,24 +176,27 @@ public class Core {
             // Execute outputCore to generate output summaries and tableau-excel-file
             outputCore.execute(folderDirectory, destinationDirectory);
 
-            // Copy Tableau files from resources to Output folder
-            for (String fileName : TABLEAU_FILE_NAMES) {
-                try {
-                    URL file = Main.class.getResource(TABLEAU_WORKBOOKS_SOURCE_DIR + "/" + fileName);
-                    File newFile = new File(destinationDirectory + "/" + fileName);
-                    FileUtils.copyURLToFile(file, newFile);
-                    LOGGER.info(fileName + " moved into Output folder");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            // Copy Tableau workbook from resources to Output folder
+            try {
+                File newFile = new File(destinationDirectory + "/" + TABLEAU_WORKBOOK_NAME);
+                URL file = Main.class.getResource(TABLEAU_WORKBOOK_SOURCE_DIR + "/" + TABLEAU_WORKBOOK_NAME);
+                FileUtils.copyURLToFile(file, newFile);
+                LOGGER.info(TABLEAU_WORKBOOK_NAME + " moved into Output folder");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         } else {
             throw new CustomException("Raw Output Excel Files folder is empty!");
         }
 
-        // Clear lists of files
-        excelInputFiles.clear();
-        excelOutputFiles.clear();
+        // Open Tableau workbook
+        try {
+            Desktop.getDesktop().open(new File(destinationDirectory + "/" + TABLEAU_WORKBOOK_NAME));
+        } catch (IOException e) {
+            LOGGER.info("Tableau application not installed or failed to launch! Tableau workbook open aborted.");
+        } catch (IllegalArgumentException e) {
+            LOGGER.info("Tableau workbook not found! Tableau workbook open aborted.");
+        }
     }
 
     /**

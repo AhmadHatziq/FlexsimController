@@ -50,7 +50,7 @@ public class MainGui extends UiPart<Stage> {
     @FXML
     private HBox exeDragTarget;
     @FXML
-    private TextField exeLocation;
+    private TextField flexsimExeLocation;
     @FXML
     private HBox modelDragTarget;
     @FXML
@@ -125,7 +125,7 @@ public class MainGui extends UiPart<Stage> {
     }
 
     private void configureUi() {
-        exeLocation.setText(core.getFlexsimLocation());
+        flexsimExeLocation.setText(core.getFlexsimLocation());
         modelFileLocation.setText(core.getModelLocation());
         inputFileLocation.setText(core.getInputLocation());
         outputFileLocation.setText(core.getOutputLocation());
@@ -348,7 +348,7 @@ public class MainGui extends UiPart<Stage> {
         final boolean isAccepted = db.getFiles().get(0).getName().toLowerCase().endsWith(".exe");
 
         if (db.hasFiles() && isAccepted) {
-            exeLocation.setText(db.getFiles().toString().replaceAll("\\[", "").replaceAll("\\]",""));
+            flexsimExeLocation.setText(db.getFiles().toString().replaceAll("\\[", "").replaceAll("\\]",""));
             success = true;
         } else {
             showInvalidBox("File must be a executable file with extension .exe");
@@ -420,7 +420,7 @@ public class MainGui extends UiPart<Stage> {
     public void handleModelExecution() throws IOException {
         if (isBlankFiles()) {
             showInvalidBox("File Directories cannot be blank!");
-        } else if (!isFoundFiles(exeLocation.getText())) {
+        } else if (!isFoundFiles(flexsimExeLocation.getText())) {
             showInvalidBox("FlexSim (.exe) address cannot be found!");
         } else if (!isFoundFiles(modelFileLocation.getText())) {
             showInvalidBox("Model (.fsm) address cannot be found!");
@@ -478,7 +478,7 @@ public class MainGui extends UiPart<Stage> {
      * Saves input data to core.
      */
     private void saveInputDataToCore() {
-        core.inputData(exeLocation.getText(), modelFileLocation.getText(), inputFileLocation.getText(),
+        core.inputData(flexsimExeLocation.getText(), modelFileLocation.getText(), inputFileLocation.getText(),
                 outputFileLocation.getText(), runSpeed.getText(), stopTime.getText(), showModel.isSelected(),
                 getLotSequencingRules(),
                 Integer.toString(batchSizeMin.getValueFactory().getValue()),
@@ -683,7 +683,7 @@ public class MainGui extends UiPart<Stage> {
      * @return Boolean.
      */
     private boolean isBlankFiles() {
-        if (exeLocation.getText() == null || exeLocation.getText().isBlank() ||
+        if (flexsimExeLocation.getText() == null || flexsimExeLocation.getText().isBlank() ||
                 modelFileLocation.getText() == null || modelFileLocation.getText().isBlank() ||
                 inputFileLocation.getText() == null || inputFileLocation.getText().isBlank() ||
                 outputFileLocation.getText() == null || outputFileLocation.getText().isBlank()) {
@@ -712,7 +712,7 @@ public class MainGui extends UiPart<Stage> {
      * @return Boolean.
      */
     private boolean isValidExeLocation() {
-        String fileName = exeLocation.getText().substring(exeLocation.getText().lastIndexOf("\\") + 1);
+        String fileName = flexsimExeLocation.getText().substring(flexsimExeLocation.getText().lastIndexOf("\\") + 1);
 
         if (fileName.equals("flexsim.exe")) {
             return true;

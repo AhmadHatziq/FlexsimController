@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.logging.Logger;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -23,12 +24,12 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import com.nusinfineon.exceptions.CustomException;
 import com.nusinfineon.core.input.LotEntry.GenericLotEntry;
 import com.nusinfineon.core.input.LotEntry.LotEntry;
-import com.nusinfineon.util.LotSequencingRule;
 import com.nusinfineon.core.input.LotEntry.MJLotEntry;
 import com.nusinfineon.core.input.LotEntry.SPTLotEntry;
+import com.nusinfineon.exceptions.CustomException;
+import com.nusinfineon.util.LotSequencingRule;
 
 /**
  * Class represents the core functionality involved in interfacing with a Microsoft Excel document for the
@@ -36,7 +37,7 @@ import com.nusinfineon.core.input.LotEntry.SPTLotEntry;
  */
 public class InputCore {
 
-    private static final String MASTER_XLSX_FILE_NAME = "temp_master_input";
+    private static final String MASTER_XLSX_FILE_NAME = "temp_master_input_";
     private static final String PRODUCT_INFO_SHEET_NAME = "Product Info and Eqpt Matrix";
     private static final String MIN_BIB_COLUMN_NAME = "BIB Slot Utilization Min";
 
@@ -113,9 +114,10 @@ public class InputCore {
      */
     public ArrayList<File> execute() throws IOException, CustomException {
 
-        createCopyOfInputFile(); // Uses the copy of the input file as a reference
         checkValidInputFile();
-        LOGGER.info("Successfully created a copy of main Input excel file");
+
+        // Generate single random seed for randomise lot sequencing rule
+        long randomSeed = new Random().nextLong();
 
         // Iterate through rules
         for (Map.Entry<LotSequencingRule, Boolean> rule : lotSequencingRules.entrySet()) {
@@ -123,8 +125,11 @@ public class InputCore {
             if (rule.getValue()) {
                 // Iterate through batch sizes
                 for (int minBatchSize : listOfMinBatchSizes) {
-                    LOGGER.info("Writing temp Input excel file for batch size " + minBatchSize
+                    LOGGER.info("Writing temp Input excel file for min batch size " + minBatchSize
                             + ", " + rule.getKey().toString());
+
+                    createCopyOfInputFile(); // Uses the copy of the input file as a reference
+                    LOGGER.info("Successfully created a copy of main Input excel file. Now processing...");
 
                     // Create the workbook from a copy of the original excel file
                     Workbook workbook = WorkbookFactory.create(this.tempCopyOriginalInputExcelFile);
@@ -133,7 +138,7 @@ public class InputCore {
                     editMinBatchSize(workbook, minBatchSize);
 
                     // Lot sequencing on Actual Lot Info
-                    processLotSequencing(workbook, rule.getKey());
+                    processLotSequencing(workbook, rule.getKey(), randomSeed);
 
                     // Edit settings
                     editSettings(workbook);
@@ -144,6 +149,7 @@ public class InputCore {
                     FileOutputStream outputStream = new FileOutputStream(singleBatchExcelFileDestination.toString());
                     workbook.write(outputStream);
                     workbook.close();
+                    LOGGER.info("Successfully processed " + singleBatchExcelFileDestination.toString());
 
                     // Adds the file into the array
                     excelInputFiles.add(singleBatchExcelFileDestination);
@@ -160,7 +166,7 @@ public class InputCore {
      * @throws CustomException
      */
     private void checkValidInputFile() throws IOException, CustomException {
-        Workbook workbook = WorkbookFactory.create(this.tempCopyOriginalInputExcelFile);
+        Workbook workbook = WorkbookFactory.create(this.originalInputExcelFile);
         ArrayList<String> missingSheets = new ArrayList<>();
 
         // Check for missing sheets
@@ -247,29 +253,29 @@ public class InputCore {
      * Processes the lot sequencing on Actual Lot Info sheet
      * @param workbook Workbook to edit
      */
-    private void processLotSequencing(Workbook workbook, LotSequencingRule rule) {
+    private void processLotSequencing(Workbook workbook, LotSequencingRule rule, long seed) {
         // Access Actual Lot Info sheet
         Sheet lotInfoSheet = workbook.getSheet(LOT_INFO_SHEET_NAME);
 
         ArrayList<LotEntry> lotList = new ArrayList<>();
 
         switch (rule) {
-            case SPT:
-                // Access Process Time sheet
-                Sheet processTimeSheet = workbook.getSheet(PROCESS_TIME_SHEET_NAME);
-                // Get list sorted by shortest processing time
-                lotList = shortestProcessingTime(lotInfoSheet, processTimeSheet);
-                break;
-            case MJ:
-                // Get list sorted by most jobs
-                lotList = mostJobs(lotInfoSheet);
-                break;
-            case RAND:
-                // Get list sorted randomly
-                lotList = randomSequence(lotInfoSheet);
-                break;
-            default:
-                break;
+        case SPT:
+            // Access Process Time sheet
+            Sheet processTimeSheet = workbook.getSheet(PROCESS_TIME_SHEET_NAME);
+            // Get list sorted by shortest processing time
+            lotList = shortestProcessingTime(lotInfoSheet, processTimeSheet);
+            break;
+        case MJ:
+            // Get list sorted by most jobs
+            lotList = mostJobs(lotInfoSheet);
+            break;
+        case RAND:
+            // Get list sorted randomly
+            lotList = randomSequence(lotInfoSheet, seed);
+            break;
+        default:
+            break;
         }
 
         if (!rule.equals(LotSequencingRule.FCFS)) {
@@ -369,7 +375,7 @@ public class InputCore {
      * @param lotInfoSheet Actual Lot Info sheet
      * @return Sorted list of lots
      */
-    private ArrayList<LotEntry> randomSequence(Sheet lotInfoSheet) {
+    private ArrayList<LotEntry> randomSequence(Sheet lotInfoSheet, long seed) {
         ArrayList<LotEntry> lotList = new ArrayList<>();
         double currentPeriod = 0.0;
         ArrayList<LotEntry> subLotList = new ArrayList<>();
@@ -380,7 +386,7 @@ public class InputCore {
             }
             if (lotInfoRow.getRowNum() != 0) {
                 if (currentPeriod != lotInfoRow.getCell(LOT_INFO_PERIOD_COLUMN).getNumericCellValue()) {
-                    Collections.shuffle(subLotList);
+                    Collections.shuffle(subLotList, new Random(seed));
                     lotList.addAll(subLotList);
                     subLotList = new ArrayList<>();
                 }
@@ -393,7 +399,7 @@ public class InputCore {
                 currentPeriod = lotInfoRow.getCell(LOT_INFO_PERIOD_COLUMN).getNumericCellValue();
             }
         }
-        Collections.shuffle(subLotList);
+        Collections.shuffle(subLotList, new Random(seed));
         lotList.addAll(subLotList);
 
         return lotList;

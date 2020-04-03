@@ -31,7 +31,7 @@ public class Server {
             LOGGER.info("Waiting for FlexSim to finish and connect ...");
 
             socket = server.accept();
-            LOGGER.info("FlexSim connected! Starting next run");
+            LOGGER.info("FlexSim connected! Ready to proceed");
 
             // close connection
             socket.close();

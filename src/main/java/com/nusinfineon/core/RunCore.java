@@ -68,7 +68,7 @@ public class RunCore {
 
         int i = 1;
         for (File iter : excelOutputFiles) {
-            LOGGER.info("output file "+  i + ": " + iter.toString());
+            LOGGER.info("Output file "+  i + ": " + iter.toString());
             i++;
         }
 

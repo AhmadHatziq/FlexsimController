@@ -1,0 +1,2721 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20192.20.0218.0709                               -->
+<workbook original-version='18.1' source-build='2019.2.9 (20192.20.0218.0709)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='THROUGHPUT (tableau-excel-file)' inline='true' name='federated.1r8eeok10oifgk15vz67101w6xxt' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau-excel-file' name='excel-direct.073ywpe1n4dz6u1dhosa41b0dftr'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.073ywpe1n4dz6u1dhosa41b0dftr' name='THROUGHPUT' table='[THROUGHPUT$]' type='table'>
+          <columns gridOrigin='A1:C1:no:A1:C1:0' header='yes' outcome='6'>
+            <column datatype='string' name='Run Type' ordinal='0' />
+            <column datatype='real' name='Throughput' ordinal='1' />
+            <column datatype='string' name='Product ID' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Run Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Run Type]</local-name>
+            <parent-name>[THROUGHPUT]</parent-name>
+            <remote-alias>Run Type</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Throughput</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Throughput]</local-name>
+            <parent-name>[THROUGHPUT]</parent-name>
+            <remote-alias>Throughput</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Product ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Product ID]</local-name>
+            <parent-name>[THROUGHPUT]</parent-name>
+            <remote-alias>Product ID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[THROUGHPUT]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>1</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C1:no:A1:C1:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='real' name='[Throughput]' role='measure' type='quantitative' />
+      <column-instance column='[Throughput]' derivation='Attribute' name='[attr:Throughput:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Throughput]' derivation='Avg' name='[avg:Throughput:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Throughput]' derivation='Max' name='[max:Throughput:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Throughput]' derivation='Min' name='[min:Throughput:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Throughput]' derivation='None' name='[none:Throughput:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Throughput]' derivation='Sum' name='[sum:Throughput:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.500717' measure-ordering='alphabetic' measure-percentage='0.499283' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1r8eeok10oifgk15vz67101w6xxt].[attr:Throughput:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1r8eeok10oifgk15vz67101w6xxt].[min:Throughput:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='TIME_IN_SYSTEM (tableau-excel-file)' inline='true' name='federated.1hnag2y1gk8xl71d07njy1cmprin' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau-excel-file' name='excel-direct.01mf32d0a7vlm21b9her91hned18'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.01mf32d0a7vlm21b9her91hned18' name='TIME_IN_SYSTEM' table='[TIME_IN_SYSTEM$]' type='table'>
+          <columns gridOrigin='A1:C1:no:A1:C1:0' header='yes' outcome='6'>
+            <column datatype='string' name='Run Type' ordinal='0' />
+            <column datatype='real' name='Time In System' ordinal='1' />
+            <column datatype='string' name='Product ID' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Run Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Run Type]</local-name>
+            <parent-name>[TIME_IN_SYSTEM]</parent-name>
+            <remote-alias>Run Type</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Time In System</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Time In System]</local-name>
+            <parent-name>[TIME_IN_SYSTEM]</parent-name>
+            <remote-alias>Time In System</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Product ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Product ID]</local-name>
+            <parent-name>[TIME_IN_SYSTEM]</parent-name>
+            <remote-alias>Product ID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[TIME_IN_SYSTEM]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>1</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C1:no:A1:C1:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.500717' measure-ordering='alphabetic' measure-percentage='0.499283' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='IBIS_UTILIZATION (tableau-excel-file)' inline='true' name='federated.1l5tphq1rd106t18wwosv0sw9n4m' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau-excel-file' name='excel-direct.189gkti1dnitof134ubly03j6275'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.189gkti1dnitof134ubly03j6275' name='IBIS_UTILIZATION' table='[IBIS_UTILIZATION$]' type='table'>
+          <columns gridOrigin='A1:F1:no:A1:F1:0' header='yes' outcome='6'>
+            <column datatype='string' name='Run Type' ordinal='0' />
+            <column datatype='real' name='Idle Rate' ordinal='1' />
+            <column datatype='real' name='Processing Rate' ordinal='2' />
+            <column datatype='real' name='Setup Rate' ordinal='3' />
+            <column datatype='real' name='Waiting for Operator Rate' ordinal='4' />
+            <column datatype='real' name='Waiting for Transporter Rate' ordinal='5' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Run Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Run Type]</local-name>
+            <parent-name>[IBIS_UTILIZATION]</parent-name>
+            <remote-alias>Run Type</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Idle Rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Idle Rate]</local-name>
+            <parent-name>[IBIS_UTILIZATION]</parent-name>
+            <remote-alias>Idle Rate</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Processing Rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Processing Rate]</local-name>
+            <parent-name>[IBIS_UTILIZATION]</parent-name>
+            <remote-alias>Processing Rate</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Setup Rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Setup Rate]</local-name>
+            <parent-name>[IBIS_UTILIZATION]</parent-name>
+            <remote-alias>Setup Rate</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Waiting for Operator Rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Waiting for Operator Rate]</local-name>
+            <parent-name>[IBIS_UTILIZATION]</parent-name>
+            <remote-alias>Waiting for Operator Rate</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Waiting for Transporter Rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Waiting for Transporter Rate]</local-name>
+            <parent-name>[IBIS_UTILIZATION]</parent-name>
+            <remote-alias>Waiting for Transporter Rate</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[IBIS_UTILIZATION]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>2</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:F1:no:A1:F1:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='real' default-format='p0.00%' name='[Idle Rate]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='real' default-format='p0.00%' name='[Processing Rate]' role='measure' type='quantitative' />
+      <column datatype='real' default-format='p0.00%' name='[Setup Rate]' role='measure' type='quantitative' />
+      <column datatype='real' default-format='p0.00%' name='[Waiting for Operator Rate]' role='measure' type='quantitative' />
+      <column datatype='real' default-format='p0.00%' name='[Waiting for Transporter Rate]' role='measure' type='quantitative' />
+      <column-instance column='[Idle Rate]' derivation='Attribute' name='[attr:Idle Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Processing Rate]' derivation='Attribute' name='[attr:Processing Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Setup Rate]' derivation='Attribute' name='[attr:Setup Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Waiting for Operator Rate]' derivation='Attribute' name='[attr:Waiting for Operator Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Waiting for Transporter Rate]' derivation='Attribute' name='[attr:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Idle Rate]' derivation='Max' name='[max:Idle Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Processing Rate]' derivation='Max' name='[max:Processing Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Setup Rate]' derivation='Max' name='[max:Setup Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Waiting for Operator Rate]' derivation='Max' name='[max:Waiting for Operator Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Waiting for Transporter Rate]' derivation='Max' name='[max:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Idle Rate]' derivation='Sum' name='[sum:Idle Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Processing Rate]' derivation='Sum' name='[sum:Processing Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Setup Rate]' derivation='Sum' name='[sum:Setup Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Waiting for Operator Rate]' derivation='Sum' name='[sum:Waiting for Operator Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Waiting for Transporter Rate]' derivation='Sum' name='[sum:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.407461' measure-ordering='alphabetic' measure-percentage='0.592539' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[max:Processing Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Processing Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[max:Waiting for Transporter Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Waiting for Transporter Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[max:Waiting for Operator Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Waiting for Operator Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[max:Idle Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Idle Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[max:Setup Rate:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Setup Rate:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='PRODUCT_OUTPUT_WORTH (tableau-excel-file)' inline='true' name='federated.0a7aw5o0iaohf014s55730udbiu5' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau-excel-file' name='excel-direct.0cfuurb1o1r0p51arz4pg04dyey3'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.0cfuurb1o1r0p51arz4pg04dyey3' name='PRODUCT_OUTPUT_WORTH' table='[PRODUCT_OUTPUT_WORTH$]' type='table'>
+          <columns gridOrigin='A1:D1:no:A1:D1:0' header='yes' outcome='6'>
+            <column datatype='string' name='Run Type' ordinal='0' />
+            <column datatype='string' name='Product' ordinal='1' />
+            <column datatype='integer' name='Output' ordinal='2' />
+            <column datatype='real' name='Worth' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Run Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Run Type]</local-name>
+            <parent-name>[PRODUCT_OUTPUT_WORTH]</parent-name>
+            <remote-alias>Run Type</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Product</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Product]</local-name>
+            <parent-name>[PRODUCT_OUTPUT_WORTH]</parent-name>
+            <remote-alias>Product</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Output</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Output]</local-name>
+            <parent-name>[PRODUCT_OUTPUT_WORTH]</parent-name>
+            <remote-alias>Output</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Worth</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Worth]</local-name>
+            <parent-name>[PRODUCT_OUTPUT_WORTH]</parent-name>
+            <remote-alias>Worth</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[PRODUCT_OUTPUT_WORTH]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>1</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D1:no:A1:D1:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.480631' measure-ordering='alphabetic' measure-percentage='0.519369' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='THROUGHPUT_DAILY (tableau-excel-file)' inline='true' name='federated.1iidb5j1j4vlul13d4sjl0dv9h3e' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau-excel-file' name='excel-direct.1re2p110ds1ux312c82se1c8dq9z'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.1re2p110ds1ux312c82se1c8dq9z' name='THROUGHPUT_DAILY' table='[THROUGHPUT_DAILY$]' type='table'>
+          <columns gridOrigin='A1:A1:no:A1:A1:0' header='yes' outcome='6'>
+            <column datatype='integer' name='Day' ordinal='0' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Day</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Day]</local-name>
+            <parent-name>[THROUGHPUT_DAILY]</parent-name>
+            <remote-alias>Day</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[THROUGHPUT_DAILY]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>1</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:A1:no:A1:A1:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column aggregation='Sum' datatype='integer' name='[Day]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.517934' measure-ordering='alphabetic' measure-percentage='0.482066' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:FCFS:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_21_BIB_shortest_processing_time_output:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:SPT:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT:qk]&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:RAND:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_23_BIB_shortest_processing_time_output:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND:qk]&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:MJ:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_22_BIB_shortest_processing_time_output:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ:qk]&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_20_min_size_output:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='STAY_TIME (tableau-excel-file)' inline='true' name='federated.14zcign1baqk781f0ifxx11tvy25' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau-excel-file' name='excel-direct.131qvpg1u1bscm1eysxcy1j8p40k'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.131qvpg1u1bscm1eysxcy1j8p40k' name='STAY_TIME' table='[STAY_TIME$]' type='table'>
+          <columns gridOrigin='A1:C1:no:A1:C1:0' header='yes' outcome='6'>
+            <column datatype='string' name='Run Type' ordinal='0' />
+            <column datatype='real' name='Stay Time' ordinal='1' />
+            <column datatype='string' name='Product ID' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Run Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Run Type]</local-name>
+            <parent-name>[STAY_TIME]</parent-name>
+            <remote-alias>Run Type</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Stay Time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Stay Time]</local-name>
+            <parent-name>[STAY_TIME]</parent-name>
+            <remote-alias>Stay Time</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Product ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Product ID]</local-name>
+            <parent-name>[STAY_TIME]</parent-name>
+            <remote-alias>Product ID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[STAY_TIME]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>1</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C1:no:A1:C1:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+      <column datatype='real' name='[Stay Time]' role='measure' type='quantitative' />
+      <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Stay Time]' derivation='None' name='[none:Stay Time:qk]' pivot='key' type='quantitative' />
+      <group hidden='true' name='[Exclusions (Run Type,Stay Time)]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:Run Type:nk]' />
+          <groupfilter function='level-members' level='[none:Stay Time:qk]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.500717' measure-ordering='alphabetic' measure-percentage='0.499283' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Average Cycle Time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='TIME_IN_SYSTEM (tableau-excel-file)' name='federated.1hnag2y1gk8xl71d07njy1cmprin' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1hnag2y1gk8xl71d07njy1cmprin'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Time In System]' role='measure' type='quantitative' />
+            <column-instance column='[Time In System]' derivation='Avg' name='[avg:Time In System:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' scope='cols' value='Avg. Time In System (hrs)' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' />
+              <text column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-max' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]</rows>
+        <cols>[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]</cols>
+      </table>
+      <simple-id uuid='{B24F3385-07F5-4F13-A38B-2D2A525468CC}' />
+    </worksheet>
+    <worksheet name='Average Stay Time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='STAY_TIME (tableau-excel-file)' name='federated.14zcign1baqk781f0ifxx11tvy25' />
+          </datasources>
+          <datasource-dependencies datasource='federated.14zcign1baqk781f0ifxx11tvy25'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Stay Time]' role='measure' type='quantitative' />
+            <column-instance column='[Stay Time]' derivation='Avg' name='[avg:Stay Time:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' scope='cols' value='Avg. Stay Time (hrs)' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' />
+              <text column='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-max' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]</rows>
+        <cols>[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]</cols>
+      </table>
+      <simple-id uuid='{1EF37360-26D6-4CBC-897E-E2A03BF9E134}' />
+    </worksheet>
+    <worksheet name='Cumulative Throughput'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='THROUGHPUT (tableau-excel-file)' name='federated.1r8eeok10oifgk15vz67101w6xxt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1r8eeok10oifgk15vz67101w6xxt'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Throughput]' role='measure' type='quantitative' />
+            <column-instance column='[Throughput]' derivation='Max' name='[max:Throughput:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Throughput]' derivation='Sum' name='[sum:Throughput:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]' scope='cols' value='Cumulative Throughput (pcs/hr)' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]' value='100' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' />
+              <text column='[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-min' value='false' />
+                <format attr='mark-labels-range-max' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</rows>
+        <cols>[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]</cols>
+      </table>
+      <simple-id uuid='{29F26957-5035-4A50-B97C-9DF09C178812}' />
+    </worksheet>
+    <worksheet name='Cycle Time by Product (Focused)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='TIME_IN_SYSTEM (tableau-excel-file)' name='federated.1hnag2y1gk8xl71d07njy1cmprin' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1hnag2y1gk8xl71d07njy1cmprin'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Time In System]' role='measure' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Time In System]' derivation='None' name='[none:Time In System:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]' field-type='quantitative' max='270.0' min='-17.567186907951474' range-type='fixed' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]' scope='rows' value='Time In System (hrs)' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]</rows>
+        <cols>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]</cols>
+      </table>
+      <simple-id uuid='{089F14F0-5C4A-4A07-9968-ECF9BC923B5A}' />
+    </worksheet>
+    <worksheet name='Cycle Time by Product (Full)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='TIME_IN_SYSTEM (tableau-excel-file)' name='federated.1hnag2y1gk8xl71d07njy1cmprin' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1hnag2y1gk8xl71d07njy1cmprin'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Time In System]' role='measure' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Time In System]' derivation='None' name='[none:Time In System:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]' scope='rows' value='Time In System (hrs)' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Time In System:qk]</rows>
+        <cols>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]</cols>
+      </table>
+      <simple-id uuid='{628EA035-E1AE-45F9-95FA-B728192C1B00}' />
+    </worksheet>
+    <worksheet name='Daily Throughput Trend'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Throughput per Day by Run</run>
+          </formatted-text>
+        </title>
+        <caption>
+          <formatted-text>
+            <run bold='true' fontsize='14'>To use this chart, click F5 to refresh, then drag &apos;</run>
+            <run bold='true' fontsize='14' italic='true'>Measure Values</run>
+            <run bold='true' fontsize='14'>&apos; to &apos;Rows&apos;, and &apos;</run>
+            <run bold='true' fontsize='14' italic='true'>Measure Names</run>
+            <run bold='true' fontsize='14'>&apos; to &apos;Colour&apos; under Marks.</run>
+          </formatted-text>
+        </caption>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='THROUGHPUT_DAILY (tableau-excel-file)' name='federated.1iidb5j1j4vlul13d4sjl0dv9h3e' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1iidb5j1j4vlul13d4sjl0dv9h3e'>
+            <column aggregation='Sum' datatype='integer' name='[Day]' role='dimension' type='ordinal' />
+            <column-instance column='[Day]' derivation='None' name='[none:Day:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[:Measure Names]'>
+            <groupfilter function='level-members' level='[:Measure Names]' />
+          </filter>
+          <slices>
+            <column>[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[none:Day:qk]</cols>
+      </table>
+      <simple-id uuid='{36FC7090-5971-4779-ACF2-88DA383C075D}' />
+    </worksheet>
+    <worksheet name='IBIS OEE (Other Rates)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IBIS_UTILIZATION (tableau-excel-file)' name='federated.1l5tphq1rd106t18wwosv0sw9n4m' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1l5tphq1rd106t18wwosv0sw9n4m'>
+            <column datatype='real' default-format='p0.00%' name='[Idle Rate]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' default-format='p0.00%' name='[Setup Rate]' role='measure' type='quantitative' />
+            <column datatype='real' default-format='p0.00%' name='[Waiting for Operator Rate]' role='measure' type='quantitative' />
+            <column datatype='real' default-format='p0.00%' name='[Waiting for Transporter Rate]' role='measure' type='quantitative' />
+            <column-instance column='[Idle Rate]' derivation='Attribute' name='[attr:Idle Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Setup Rate]' derivation='Attribute' name='[attr:Setup Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Waiting for Operator Rate]' derivation='Attribute' name='[attr:Waiting for Operator Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Waiting for Transporter Rate]' derivation='Attribute' name='[attr:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' scope='cols' value='Rate (%)' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' value='136' />
+            <format attr='width' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]' value='116' />
+            <format attr='band-color' scope='rows' value='#00000000' />
+            <format attr='background-color' scope='rows' value='#00000000' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+            <encoding attr='color' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+            <encoding attr='color' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+            <encoding attr='color' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#00000000' />
+            <format attr='background-color' data-class='subtotal' scope='rows' value='#00000000' />
+            <format attr='background-color' data-class='total' scope='rows' value='#00000000' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' separate-domains='true' />
+              <text column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' separate-domains='true' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#69aaa5' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='false' />
+                <format attr='mark-transparency' value='255' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names] / [federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk])</rows>
+        <cols>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]</cols>
+      </table>
+      <simple-id uuid='{D94C2C21-92C4-4104-A19F-17DAF1FB4D3B}' />
+    </worksheet>
+    <worksheet name='IBIS OEE (Pie)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IBIS_UTILIZATION (tableau-excel-file)' name='federated.1l5tphq1rd106t18wwosv0sw9n4m' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1l5tphq1rd106t18wwosv0sw9n4m'>
+            <column datatype='real' default-format='p0.00%' name='[Idle Rate]' role='measure' type='quantitative' />
+            <column datatype='real' default-format='p0.00%' name='[Processing Rate]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' default-format='p0.00%' name='[Setup Rate]' role='measure' type='quantitative' />
+            <column datatype='real' default-format='p0.00%' name='[Waiting for Operator Rate]' role='measure' type='quantitative' />
+            <column datatype='real' default-format='p0.00%' name='[Waiting for Transporter Rate]' role='measure' type='quantitative' />
+            <column-instance column='[Idle Rate]' derivation='Attribute' name='[attr:Idle Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Processing Rate]' derivation='Attribute' name='[attr:Processing Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Setup Rate]' derivation='Attribute' name='[attr:Setup Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Waiting for Operator Rate]' derivation='Attribute' name='[attr:Waiting for Operator Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Waiting for Transporter Rate]' derivation='Attribute' name='[attr:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Waiting for Transporter Rate]' derivation='Sum' name='[sum:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Waiting for Transporter Rate:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]' value='208' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <wedge-size column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' />
+              <color column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' />
+              <text column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' />
+              <text column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.5052486658096313' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-min' value='false' />
+                <format attr='mark-labels-range-scope' value='multi-mark' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{C531F3CA-9066-4905-8165-2BBF842D56E5}' />
+    </worksheet>
+    <worksheet name='IBIS OEE (Utilisation Rate)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IBIS_UTILIZATION (tableau-excel-file)' name='federated.1l5tphq1rd106t18wwosv0sw9n4m' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1l5tphq1rd106t18wwosv0sw9n4m'>
+            <column datatype='real' default-format='p0.00%' name='[Processing Rate]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column-instance column='[Processing Rate]' derivation='Attribute' name='[attr:Processing Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' scope='cols' value='Processing Rate (%)' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]' value='116' />
+            <format attr='band-color' scope='rows' value='#00000000' />
+            <format attr='background-color' scope='rows' value='#00000000' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#00000000' />
+            <format attr='background-color' data-class='subtotal' scope='rows' value='#00000000' />
+            <format attr='background-color' data-class='total' scope='rows' value='#00000000' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' />
+              <text column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#69aaa5' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-min' value='false' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]</rows>
+        <cols>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]</cols>
+      </table>
+      <simple-id uuid='{78CB45BF-182D-4BDE-807C-9DE1B1CD980C}' />
+    </worksheet>
+    <worksheet name='Mean Throughput'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='THROUGHPUT (tableau-excel-file)' name='federated.1r8eeok10oifgk15vz67101w6xxt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1r8eeok10oifgk15vz67101w6xxt'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Throughput]' role='measure' type='quantitative' />
+            <column-instance column='[Throughput]' derivation='Avg' name='[avg:Throughput:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Throughput]' derivation='Max' name='[max:Throughput:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]' scope='cols' value='Mean Throughput (pcs/hr)' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]' value='104' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' />
+              <text column='[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-min' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</rows>
+        <cols>[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]</cols>
+      </table>
+      <simple-id uuid='{9DFFFE84-FE5A-4CAC-9484-CF221B134868}' />
+    </worksheet>
+    <worksheet name='Stay Time by Product (Focused)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='STAY_TIME (tableau-excel-file)' name='federated.14zcign1baqk781f0ifxx11tvy25' />
+          </datasources>
+          <datasource-dependencies datasource='federated.14zcign1baqk781f0ifxx11tvy25'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Stay Time]' role='measure' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Stay Time]' derivation='None' name='[none:Stay Time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.14zcign1baqk781f0ifxx11tvy25].[Exclusions (Run Type,Stay Time)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[none:Run Type:nk]' />
+                <groupfilter function='level-members' level='[none:Stay Time:qk]' />
+              </groupfilter>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='member' level='[none:Run Type:nk]' member='&quot;output_min_size_22&quot;' />
+                <groupfilter function='member' level='[none:Stay Time:qk]' member='730.8680876102552' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.14zcign1baqk781f0ifxx11tvy25].[Exclusions (Run Type,Stay Time)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]' field-type='quantitative' max='300.0' min='-11.512292541243895' range-type='fixed' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]' scope='rows' value='Stay Time (hrs)' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]</rows>
+        <cols>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]</cols>
+      </table>
+      <simple-id uuid='{32B19164-DDB3-4671-8A54-12099D511EB0}' />
+    </worksheet>
+    <worksheet name='Stay Time by Product (Full)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='STAY_TIME (tableau-excel-file)' name='federated.14zcign1baqk781f0ifxx11tvy25' />
+          </datasources>
+          <datasource-dependencies datasource='federated.14zcign1baqk781f0ifxx11tvy25'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Stay Time]' role='measure' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Stay Time]' derivation='None' name='[none:Stay Time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]' scope='rows' value='Stay Time (hrs)' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Stay Time:qk]</rows>
+        <cols>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]</cols>
+      </table>
+      <simple-id uuid='{C9791998-EBBB-4C1D-AAE9-A98789381D87}' />
+    </worksheet>
+    <worksheet name='Throughput by Product (Focused)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='THROUGHPUT (tableau-excel-file)' name='federated.1r8eeok10oifgk15vz67101w6xxt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1r8eeok10oifgk15vz67101w6xxt'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Throughput]' role='measure' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Throughput]' derivation='None' name='[none:Throughput:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]' field-type='quantitative' max='800.0' min='-133.4816958160005' range-type='fixed' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]' scope='rows' value='Throughput (pcs/hr)' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]</rows>
+        <cols>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</cols>
+      </table>
+      <simple-id uuid='{CFCC3B8F-CC62-4227-8723-9E2447C54AD4}' />
+    </worksheet>
+    <worksheet name='Throughput by Product (Full)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='THROUGHPUT (tableau-excel-file)' name='federated.1r8eeok10oifgk15vz67101w6xxt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1r8eeok10oifgk15vz67101w6xxt'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Throughput]' role='measure' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Throughput]' derivation='None' name='[none:Throughput:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]' scope='rows' value='Throughput (pcs/hr)' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Throughput:qk]</rows>
+        <cols>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</cols>
+      </table>
+      <simple-id uuid='{8013A607-77CE-4194-8735-2CA6E67EC45D}' />
+    </worksheet>
+    <worksheet name='Total Output'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='PRODUCT_OUTPUT_WORTH (tableau-excel-file)' name='federated.0a7aw5o0iaohf014s55730udbiu5' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0a7aw5o0iaohf014s55730udbiu5'>
+            <column datatype='integer' name='[Output]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Output]' derivation='Sum' name='[sum:Output:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Output:qk]' scope='cols' value='Output (pcs)' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Output:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Output:qk]' />
+              <text column='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Output:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-range-min' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0a7aw5o0iaohf014s55730udbiu5].[none:Run Type:nk]</rows>
+        <cols>[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Output:qk]</cols>
+      </table>
+      <simple-id uuid='{2AD42E53-5FE5-4B23-835A-5259B8597765}' />
+    </worksheet>
+    <worksheet name='Total Worth'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='PRODUCT_OUTPUT_WORTH (tableau-excel-file)' name='federated.0a7aw5o0iaohf014s55730udbiu5' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0a7aw5o0iaohf014s55730udbiu5'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Worth]' role='measure' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Worth]' derivation='Sum' name='[sum:Worth:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Worth:qk]' scope='cols' value='Worth (€)' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Worth:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Worth:qk]' />
+              <text column='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Worth:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-range-min' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0a7aw5o0iaohf014s55730udbiu5].[none:Run Type:nk]</rows>
+        <cols>[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Worth:qk]</cols>
+      </table>
+      <simple-id uuid='{58E318CE-F153-45AF-A316-8BF99BC2CB0D}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Cycle Time'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98142' id='5' param='vert' type='layout-flow' w='99034' x='483' y='929'>
+            <zone h='5807' id='7' type='title' w='99034' x='483' y='929'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='92335' id='6' type='layout-basic' w='99034' x='483' y='6736'>
+              <zone h='92335' id='8' name='Average Cycle Time' w='52345' x='483' y='6736'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='92335' id='9' name='Cycle Time by Product (Focused)' w='46689' x='52828' y='6736'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{3D21A9D6-6052-426B-9D54-4AECEC150057}' />
+    </dashboard>
+    <dashboard name='OEE'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98142' id='13' param='horz' type='layout-flow' w='99034' x='483' y='929'>
+            <zone h='98142' id='5' param='vert' type='layout-flow' w='89378' x='483' y='929'>
+              <zone h='5807' id='7' type='title' w='89378' x='483' y='929'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='92335' id='6' type='layout-basic' w='89378' x='483' y='6736'>
+                <zone h='92335' id='11' name='IBIS OEE (Pie)' w='31577' x='58284' y='6736'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='46166' id='15' name='IBIS OEE (Utilisation Rate)' w='57801' x='483' y='6736'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='46169' id='16' name='IBIS OEE (Other Rates)' w='57801' x='483' y='52902'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98142' id='12' is-fixed='true' param='vert' type='layout-flow' w='9656' x='89861' y='929'>
+              <zone h='8478' id='21' name='IBIS OEE (Utilisation Rate)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' type='color' w='9656' x='89861' y='929'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8478' id='17' name='IBIS OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]' type='color' w='9656' x='89861' y='9407'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8478' id='18' name='IBIS OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]' type='color' w='9656' x='89861' y='17885'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8478' id='19' name='IBIS OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]' type='color' w='9656' x='89861' y='26363'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8478' id='20' name='IBIS OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]' type='color' w='9656' x='89861' y='34841'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='3600' id='14' name='IBIS OEE (Pie)' pane-specification-id='0' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' type='color' w='9656' x='89861' y='43319'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{8DDC1BD4-0706-400B-9875-579A7B60ABA6}' />
+    </dashboard>
+    <dashboard name='Output Worth'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98142' id='11' param='horz' type='layout-flow' w='99034' x='483' y='929'>
+            <zone h='98142' id='5' param='vert' type='layout-flow' w='89378' x='483' y='929'>
+              <zone h='5807' id='7' type='title' w='89378' x='483' y='929'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='92335' id='6' type='layout-basic' w='89378' x='483' y='6736'>
+                <zone h='92335' id='9' name='Total Output' w='44689' x='45172' y='6736'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='92335' id='13' name='Total Worth' w='44689' x='483' y='6736'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98142' id='10' is-fixed='true' param='vert' type='layout-flow' w='9656' x='89861' y='929'>
+              <zone h='8478' id='14' name='Total Worth' pane-specification-id='0' param='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Worth:qk]' type='color' w='9656' x='89861' y='929'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8478' id='12' name='Total Output' pane-specification-id='0' param='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Output:qk]' type='color' w='9656' x='89861' y='9407'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{88D9DBE0-EF63-4571-8999-FF1BF3E199D9}' />
+    </dashboard>
+    <dashboard name='Throughput'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98142' id='5' param='vert' type='layout-flow' w='99034' x='483' y='929'>
+            <zone h='5807' id='7' type='title' w='99034' x='483' y='929'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='92335' id='6' type='layout-basic' w='99034' x='483' y='6736'>
+              <zone h='46166' id='9' name='Mean Throughput' w='51815' x='483' y='6736'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='46169' id='10' name='Cumulative Throughput' w='51815' x='483' y='52902'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='92335' id='11' name='Throughput by Product (Focused)' w='47219' x='52298' y='6736'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{AB644437-C112-416B-AD98-0695714FE1F2}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='68'>
+    <window class='dashboard' maximized='true' name='Throughput'>
+      <viewpoints>
+        <viewpoint name='Cumulative Throughput'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Mean Throughput'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Throughput by Product (Focused)'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{7D817F5F-3247-4BE6-9B80-BD3BFD6C2F3F}' />
+    </window>
+    <window class='dashboard' name='Cycle Time'>
+      <viewpoints>
+        <viewpoint name='Average Cycle Time'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Cycle Time by Product (Focused)'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{8F7693F4-AF48-4BD7-AFB7-36C65163A044}' />
+    </window>
+    <window class='dashboard' name='OEE'>
+      <viewpoints>
+        <viewpoint name='IBIS OEE (Other Rates)'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='IBIS OEE (Pie)'>
+          <zoom type='fit-width' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+        <viewpoint name='IBIS OEE (Utilisation Rate)'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{CD48E882-FF98-48FF-8C41-16108EA44A80}' />
+    </window>
+    <window class='dashboard' name='Output Worth'>
+      <viewpoints>
+        <viewpoint name='Total Output'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Total Worth'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{F464A3C5-5DD4-44AF-835B-6B6D20B006BA}' />
+    </window>
+    <window class='worksheet' name='Daily Throughput Trend'>
+      <cards>
+        <edge name='left'>
+          <strip size='196'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='36'>
+            <card type='columns' />
+          </strip>
+          <strip size='36'>
+            <card type='rows' />
+          </strip>
+          <strip size='36'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='76'>
+            <card type='caption' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[:Measure Names]</field>
+            <field>[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[none:Day:qk]</field>
+          </color-one-way>
+        </highlight>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{E2051377-6384-45DE-9F26-13D80871155D}' />
+    </window>
+    <window class='worksheet' name='Cumulative Throughput'>
+      <cards>
+        <edge name='left'>
+          <strip size='156'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='28'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[:Measure Names]</field>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]</field>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{28C6D6F8-445B-47C2-8BE7-C2C8FD99A519}' />
+    </window>
+    <window class='worksheet' name='Mean Throughput'>
+      <cards>
+        <edge name='left'>
+          <strip size='152'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='28'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]</field>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{4650C5A4-D565-49E1-AEF7-2E7EF4BE2E73}' />
+    </window>
+    <window class='worksheet' name='Throughput by Product (Full)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Product ID:nk]</field>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{B39A7890-42EA-4D69-A6D8-F2EC88C9D73E}' />
+    </window>
+    <window class='worksheet' name='Throughput by Product (Focused)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Product ID:nk]</field>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{A8A6A7EA-3960-4439-B1A7-47636ACCD243}' />
+    </window>
+    <window class='worksheet' name='Average Cycle Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]</field>
+            <field>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{8DDB20A5-5133-4B17-8329-75987FF1BD8C}' />
+    </window>
+    <window class='worksheet' name='Cycle Time by Product (Full)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{2DF2F54F-E1BE-4A35-A758-AEFACB4EFB51}' />
+    </window>
+    <window class='worksheet' name='Cycle Time by Product (Focused)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{637640E6-B499-4130-A04C-7C9194C6BE05}' />
+    </window>
+    <window class='worksheet' name='Average Stay Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]</field>
+            <field>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{B4B81837-5F39-45A1-811A-6D121A5C7DC1}' />
+    </window>
+    <window class='worksheet' name='Stay Time by Product (Full)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{A554FB53-3AA8-4873-928B-8AD5CBBD1031}' />
+    </window>
+    <window class='worksheet' name='Stay Time by Product (Focused)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{5CC98F0B-3D8B-42AE-9C5D-D6242DCE2002}' />
+    </window>
+    <window class='worksheet' name='IBIS OEE (Utilisation Rate)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Idle Rate:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{5432124F-F585-422C-B994-1A3FD49EFF10}' />
+    </window>
+    <window class='worksheet' name='IBIS OEE (Other Rates)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]' type='color' />
+            <card pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]' type='color' />
+            <card pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]' type='color' />
+            <card pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{AFCEED77-6AF9-4574-AAF8-9B44042FABD6}' />
+    </window>
+    <window class='worksheet' name='IBIS OEE (Pie)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]</field>
+            <field>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{18FBC618-B4BD-49C5-A551-A1393ECB8FEA}' />
+    </window>
+    <window class='worksheet' name='Total Worth'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Worth:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0a7aw5o0iaohf014s55730udbiu5].[none:Run Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{6AA401BE-D2D6-4C40-A5C8-9190ED25709D}' />
+    </window>
+    <window class='worksheet' name='Total Output'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Output:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0a7aw5o0iaohf014s55730udbiu5].[none:Run Type:nk]</field>
+            <field>[federated.0a7aw5o0iaohf014s55730udbiu5].[sum:Output:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{C5508861-89B2-435A-9598-57ACD875BBD9}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Cycle Time' width='192'>
+      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
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
+      AGKaAhDT/gcLa2gygXJNdwAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='87' name='Daily Throughput Trend' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAABXCAYAAABSv0r8AAAACXBIWXMAABJ0AAASdAHeZh94
+      AAABF0lEQVR4nO3cMQ6AIBAAQTH+/7m0+AStJHFnaoprNtBwY621Dog6dw8AOwmANAGQJgDS
+      BECaAEgTAGmPAcw5v5gDtnADkCYA0gRAmgBIEwBpAiBNAKQJgDQBkCYA0gRAmgBIEwBpAiBN
+      AKQJgDQBkCYA0q43h3yL5K+G3aCUeQKRJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgT
+      AGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQ
+      JgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkC
+      IE0ApAmANAGQJgDSbnxGDmvNwqR7AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='OEE' width='192'>
+      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
+      rkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Output Worth' width='192'>
+      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
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBi
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBi
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBi
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBi
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBi
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBi
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBi
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBi
+      mgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhp/wbC8ma1
+      zV5DegAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Throughput' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>

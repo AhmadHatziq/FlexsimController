@@ -1,5 +1,7 @@
 package com.nusinfineon.core.output;
 
+import static com.nusinfineon.util.Directories.TABLEAU_WORKBOOK_NAME;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -26,9 +28,10 @@ public class OutputAnalysisDriver {
         outputCore.execute(folderDirectory, destinationDirectory);
 
         // Copy Tableau files from resources to output folder
-        File tableauSourceDirectory = new File("build/resources/main/output/tableau_workbooks");
+        File tableauSourceFile = new File("build/resources/main/output/" + TABLEAU_WORKBOOK_NAME);
         try {
-            FileUtils.copyDirectory(tableauSourceDirectory, destinationDirectory);
+            FileUtils.copyFileToDirectory(tableauSourceFile, destinationDirectory);
+            System.out.println("Tableau workbook copied successfully to " + destinationDirectory.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

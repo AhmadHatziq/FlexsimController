@@ -411,7 +411,7 @@
                                        </Label>
                                        <HBox fx:id="exeDragTarget" onDragDropped="#exeDragDropped" onDragOver="#exeDragOver" GridPane.columnIndex="1">
                                           <children>
-                                             <TextField fx:id="exeLocation" alignment="TOP_LEFT" promptText="Drag here or type in the file address, e.g. C:\Program Files (x86)\FlexSim7.3\program\flexsim.exe" HBox.hgrow="ALWAYS">
+                                             <TextField fx:id="flexsimExeLocation" alignment="TOP_LEFT" promptText="Drag here or type in the file address, e.g. C:\Program Files (x86)\FlexSim7.3\program\flexsim.exe" HBox.hgrow="ALWAYS">
                                                 <cursor>
                                                    <Cursor fx:constant="DEFAULT" />
                                                 </cursor>
