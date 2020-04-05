@@ -20,7 +20,7 @@
           </named-connection>
         </named-connections>
         <relation connection='excel-direct.073ywpe1n4dz6u1dhosa41b0dftr' name='THROUGHPUT' table='[THROUGHPUT$]' type='table'>
-          <columns gridOrigin='A1:C1:no:A1:C1:0' header='yes' outcome='6'>
+          <columns gridOrigin='A1:C1716:no:A1:C1716:0' header='yes' outcome='6'>
             <column datatype='string' name='Run Type' ordinal='0' />
             <column datatype='real' name='Throughput' ordinal='1' />
             <column datatype='string' name='Product ID' ordinal='2' />
@@ -80,7 +80,7 @@
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
             <attributes>
-              <attribute datatype='integer' name='context'>1</attribute>
+              <attribute datatype='integer' name='context'>2</attribute>
               <attribute datatype='string' name='gridOrigin'>&quot;A1:C1:no:A1:C1:0&quot;</attribute>
               <attribute datatype='boolean' name='header'>true</attribute>
               <attribute datatype='integer' name='outcome'>6</attribute>
@@ -123,90 +123,6 @@
           </encoding>
         </style-rule>
       </style>
-      <semantic-values>
-        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
-      </semantic-values>
-    </datasource>
-    <datasource caption='TIME_IN_SYSTEM (tableau-excel-file)' inline='true' name='federated.1hnag2y1gk8xl71d07njy1cmprin' version='18.1'>
-      <connection class='federated'>
-        <named-connections>
-          <named-connection caption='tableau-excel-file' name='excel-direct.01mf32d0a7vlm21b9her91hned18'>
-            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
-          </named-connection>
-        </named-connections>
-        <relation connection='excel-direct.01mf32d0a7vlm21b9her91hned18' name='TIME_IN_SYSTEM' table='[TIME_IN_SYSTEM$]' type='table'>
-          <columns gridOrigin='A1:C1:no:A1:C1:0' header='yes' outcome='6'>
-            <column datatype='string' name='Run Type' ordinal='0' />
-            <column datatype='real' name='Time In System' ordinal='1' />
-            <column datatype='string' name='Product ID' ordinal='2' />
-          </columns>
-        </relation>
-        <metadata-records>
-          <metadata-record class='column'>
-            <remote-name>Run Type</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[Run Type]</local-name>
-            <parent-name>[TIME_IN_SYSTEM]</parent-name>
-            <remote-alias>Run Type</remote-alias>
-            <ordinal>0</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='1' name='LEN_RSG_S2' />
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>Time In System</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[Time In System]</local-name>
-            <parent-name>[TIME_IN_SYSTEM]</parent-name>
-            <remote-alias>Time In System</remote-alias>
-            <ordinal>1</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>15</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>Product ID</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[Product ID]</local-name>
-            <parent-name>[TIME_IN_SYSTEM]</parent-name>
-            <remote-alias>Product ID</remote-alias>
-            <ordinal>2</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <collation flag='1' name='LEN_RSG_S2' />
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='capability'>
-            <remote-name />
-            <remote-type>0</remote-type>
-            <parent-name>[TIME_IN_SYSTEM]</parent-name>
-            <remote-alias />
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='integer' name='context'>1</attribute>
-              <attribute datatype='string' name='gridOrigin'>&quot;A1:C1:no:A1:C1:0&quot;</attribute>
-              <attribute datatype='boolean' name='header'>true</attribute>
-              <attribute datatype='integer' name='outcome'>6</attribute>
-            </attributes>
-          </metadata-record>
-        </metadata-records>
-      </connection>
-      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
-        <calculation class='tableau' formula='1' />
-      </column>
-      <layout dim-ordering='alphabetic' dim-percentage='0.500717' measure-ordering='alphabetic' measure-percentage='0.499283' show-structure='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
       </semantic-values>
@@ -509,146 +425,7 @@
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
       </column>
-      <layout dim-ordering='alphabetic' dim-percentage='0.480631' measure-ordering='alphabetic' measure-percentage='0.519369' show-structure='true' />
-      <semantic-values>
-        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
-      </semantic-values>
-    </datasource>
-    <datasource caption='THROUGHPUT_DAILY (tableau-excel-file)' inline='true' name='federated.1iidb5j1j4vlul13d4sjl0dv9h3e' version='18.1'>
-      <connection class='federated'>
-        <named-connections>
-          <named-connection caption='tableau-excel-file' name='excel-direct.1re2p110ds1ux312c82se1c8dq9z'>
-            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
-          </named-connection>
-        </named-connections>
-        <relation connection='excel-direct.1re2p110ds1ux312c82se1c8dq9z' name='THROUGHPUT_DAILY' table='[THROUGHPUT_DAILY$]' type='table'>
-          <columns gridOrigin='A1:A1:no:A1:A1:0' header='yes' outcome='6'>
-            <column datatype='integer' name='Day' ordinal='0' />
-          </columns>
-        </relation>
-        <metadata-records>
-          <metadata-record class='column'>
-            <remote-name>Day</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[Day]</local-name>
-            <parent-name>[THROUGHPUT_DAILY]</parent-name>
-            <remote-alias>Day</remote-alias>
-            <ordinal>0</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='capability'>
-            <remote-name />
-            <remote-type>0</remote-type>
-            <parent-name>[THROUGHPUT_DAILY]</parent-name>
-            <remote-alias />
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='integer' name='context'>1</attribute>
-              <attribute datatype='string' name='gridOrigin'>&quot;A1:A1:no:A1:A1:0&quot;</attribute>
-              <attribute datatype='boolean' name='header'>true</attribute>
-              <attribute datatype='integer' name='outcome'>6</attribute>
-            </attributes>
-          </metadata-record>
-        </metadata-records>
-      </connection>
-      <column aggregation='Sum' datatype='integer' name='[Day]' role='dimension' type='ordinal' />
-      <layout dim-ordering='alphabetic' dim-percentage='0.517934' measure-ordering='alphabetic' measure-percentage='0.482066' show-structure='true' />
-      <style>
-        <style-rule element='mark'>
-          <encoding attr='color' field='[:Measure Names]' type='palette'>
-            <map to='#499894'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_22_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e]&quot;</bucket>
-            </map>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:FCFS:qk]&quot;</bucket>
-            </map>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS:qk]&quot;</bucket>
-            </map>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_21_BIB_shortest_processing_time_output:qk]&quot;</bucket>
-            </map>
-            <map to='#59a14f'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_22_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#76b7b2'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:SPT:qk]&quot;</bucket>
-            </map>
-            <map to='#76b7b2'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT:qk]&quot;</bucket>
-            </map>
-            <map to='#79706e'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_20_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#86bcb6'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_24_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#8cd17d'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_24_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#9d7660'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_24_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#a0cbe8'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_18_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#b07aa1'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_20_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#b6992d'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_18_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#bab0ac'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_22_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#d37295'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_24_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#d4a6c8'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_22_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:RAND:qk]&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_23_BIB_shortest_processing_time_output:qk]&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND:qk]&quot;</bucket>
-            </map>
-            <map to='#f1ce63'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_20_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:MJ:qk]&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_22_BIB_shortest_processing_time_output:qk]&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ:qk]&quot;</bucket>
-            </map>
-            <map to='#fabfd2'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_18_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#ff9d9a'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_18_min_size_output:qk]&quot;</bucket>
-            </map>
-            <map to='#ffbe7d'>
-              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_20_min_size_output:qk]&quot;</bucket>
-            </map>
-          </encoding>
-        </style-rule>
-      </style>
+      <layout dim-ordering='alphabetic' dim-percentage='0.482066' measure-ordering='alphabetic' measure-percentage='0.517934' show-structure='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
       </semantic-values>
@@ -747,103 +524,328 @@
         <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
       </semantic-values>
     </datasource>
+    <datasource caption='TIME_IN_SYSTEM (tableau-excel-file)' inline='true' name='federated.1hnag2y1gk8xl71d07njy1cmprin' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau-excel-file' name='excel-direct.01mf32d0a7vlm21b9her91hned18'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.01mf32d0a7vlm21b9her91hned18' name='TIME_IN_SYSTEM' table='[TIME_IN_SYSTEM$]' type='table'>
+          <columns gridOrigin='A1:C1:no:A1:C1:0' header='yes' outcome='6'>
+            <column datatype='string' name='Run Type' ordinal='0' />
+            <column datatype='real' name='Time In System' ordinal='1' />
+            <column datatype='string' name='Product ID' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Run Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Run Type]</local-name>
+            <parent-name>[TIME_IN_SYSTEM]</parent-name>
+            <remote-alias>Run Type</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Time In System</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Time In System]</local-name>
+            <parent-name>[TIME_IN_SYSTEM]</parent-name>
+            <remote-alias>Time In System</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Product ID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Product ID]</local-name>
+            <parent-name>[TIME_IN_SYSTEM]</parent-name>
+            <remote-alias>Product ID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[TIME_IN_SYSTEM]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>1</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C1:no:A1:C1:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.500717' measure-ordering='alphabetic' measure-percentage='0.499283' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='THROUGHPUT_DAILY (tableau-excel-file)' inline='true' name='federated.1iidb5j1j4vlul13d4sjl0dv9h3e' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableau-excel-file' name='excel-direct.1re2p110ds1ux312c82se1c8dq9z'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/YONGXIANG_PC/Desktop/Tableau/tableau-excel-file.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.1re2p110ds1ux312c82se1c8dq9z' name='THROUGHPUT_DAILY' table='[THROUGHPUT_DAILY$]' type='table'>
+          <columns gridOrigin='A1:A1:no:A1:A1:0' header='yes' outcome='6'>
+            <column datatype='integer' name='Day' ordinal='0' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Day</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Day]</local-name>
+            <parent-name>[THROUGHPUT_DAILY]</parent-name>
+            <remote-alias>Day</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[THROUGHPUT_DAILY]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>1</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:A1:no:A1:A1:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column aggregation='Sum' datatype='integer' name='[Day]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.517934' measure-ordering='alphabetic' measure-percentage='0.482066' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:MJ_19_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:MJ_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_19_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:FCFS:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_21_BIB_shortest_processing_time_output:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:FCFS_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_21_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:SPT:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT:qk]&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:MJ_23_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:RAND_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_23_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:MJ_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:FCFS_23_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:FCFS_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_23_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:FCFS_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:FCFS_19_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_19_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:MJ_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_23_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:RAND_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_24_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:RAND_21_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_21_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_22_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:RAND_23_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_23_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:RAND:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:MJ_21_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_23_BIB_shortest_processing_time_output:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_21_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND:qk]&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:MJ_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[attr:MJ:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:min_22_BIB_shortest_processing_time_output:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:MJ:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_19_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:RAND_19_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_19_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:SPT_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:RAND_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:RAND_18_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:FCFS_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[avg:FCFS_21_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_20_min_size_output:qk]&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[sum:FCFS_21_min_size_output:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+    </datasource>
   </datasources>
   <worksheets>
-    <worksheet name='Average Cycle Time'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='TIME_IN_SYSTEM (tableau-excel-file)' name='federated.1hnag2y1gk8xl71d07njy1cmprin' />
-          </datasources>
-          <datasource-dependencies datasource='federated.1hnag2y1gk8xl71d07njy1cmprin'>
-            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
-            <column datatype='real' name='[Time In System]' role='measure' type='quantitative' />
-            <column-instance column='[Time In System]' derivation='Avg' name='[avg:Time In System:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='axis'>
-            <format attr='title' class='0' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' scope='cols' value='Avg. Time In System (hrs)' />
-          </style-rule>
-          <style-rule element='mark'>
-            <encoding attr='color' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' />
-              <text column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='false' />
-                <format attr='mark-labels-mode' value='range' />
-                <format attr='mark-labels-range-max' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]</rows>
-        <cols>[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]</cols>
-      </table>
-      <simple-id uuid='{B24F3385-07F5-4F13-A38B-2D2A525468CC}' />
-    </worksheet>
-    <worksheet name='Average Stay Time'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='STAY_TIME (tableau-excel-file)' name='federated.14zcign1baqk781f0ifxx11tvy25' />
-          </datasources>
-          <datasource-dependencies datasource='federated.14zcign1baqk781f0ifxx11tvy25'>
-            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
-            <column datatype='real' name='[Stay Time]' role='measure' type='quantitative' />
-            <column-instance column='[Stay Time]' derivation='Avg' name='[avg:Stay Time:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='axis'>
-            <format attr='title' class='0' field='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' scope='cols' value='Avg. Stay Time (hrs)' />
-          </style-rule>
-          <style-rule element='mark'>
-            <encoding attr='color' field='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' />
-              <text column='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='false' />
-                <format attr='mark-labels-mode' value='range' />
-                <format attr='mark-labels-range-max' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]</rows>
-        <cols>[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]</cols>
-      </table>
-      <simple-id uuid='{1EF37360-26D6-4CBC-897E-E2A03BF9E134}' />
-    </worksheet>
-    <worksheet name='Cumulative Throughput'>
+    <worksheet name='Cumulative Throughput (of All Products)'>
       <table>
         <view>
           <datasources>
@@ -852,7 +854,6 @@
           <datasource-dependencies datasource='federated.1r8eeok10oifgk15vz67101w6xxt'>
             <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
             <column datatype='real' name='[Throughput]' role='measure' type='quantitative' />
-            <column-instance column='[Throughput]' derivation='Max' name='[max:Throughput:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
             <column-instance column='[Throughput]' derivation='Sum' name='[sum:Throughput:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
@@ -866,7 +867,7 @@
             <format attr='width' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]' value='100' />
           </style-rule>
           <style-rule element='mark'>
-            <encoding attr='color' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+            <encoding attr='color' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]' palette='red_green_diverging_10_0' type='interpolated' />
           </style-rule>
         </style>
         <panes>
@@ -876,7 +877,7 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <color column='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' />
+              <color column='[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]' />
               <text column='[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]' />
             </encodings>
             <style>
@@ -982,7 +983,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run>Throughput per Day by Run</run>
+            <run>Daily Cumulative Throughput across Run Period</run>
           </formatted-text>
         </title>
         <caption>
@@ -1004,12 +1005,6 @@
             <column aggregation='Sum' datatype='integer' name='[Day]' role='dimension' type='ordinal' />
             <column-instance column='[Day]' derivation='None' name='[none:Day:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[:Measure Names]'>
-            <groupfilter function='level-members' level='[:Measure Names]' />
-          </filter>
-          <slices>
-            <column>[federated.1iidb5j1j4vlul13d4sjl0dv9h3e].[:Measure Names]</column>
-          </slices>
           <aggregation value='true' />
         </view>
         <style />
@@ -1026,7 +1021,94 @@
       </table>
       <simple-id uuid='{36FC7090-5971-4779-ACF2-88DA383C075D}' />
     </worksheet>
-    <worksheet name='IBIS OEE (Other Rates)'>
+    <worksheet name='IBIS Oven OEE'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IBIS_UTILIZATION (tableau-excel-file)' name='federated.1l5tphq1rd106t18wwosv0sw9n4m' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1l5tphq1rd106t18wwosv0sw9n4m'>
+            <column datatype='real' default-format='p0.00%' name='[Idle Rate]' role='measure' type='quantitative' />
+            <column datatype='real' default-format='p0.00%' name='[Processing Rate]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' default-format='p0.00%' name='[Setup Rate]' role='measure' type='quantitative' />
+            <column datatype='real' default-format='p0.00%' name='[Waiting for Operator Rate]' role='measure' type='quantitative' />
+            <column datatype='real' default-format='p0.00%' name='[Waiting for Transporter Rate]' role='measure' type='quantitative' />
+            <column-instance column='[Idle Rate]' derivation='Attribute' name='[attr:Idle Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Processing Rate]' derivation='Attribute' name='[attr:Processing Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Setup Rate]' derivation='Attribute' name='[attr:Setup Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Waiting for Operator Rate]' derivation='Attribute' name='[attr:Waiting for Operator Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Waiting for Transporter Rate]' derivation='Attribute' name='[attr:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Waiting for Transporter Rate]' derivation='Sum' name='[sum:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Waiting for Transporter Rate:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]' value='208' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <wedge-size column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' />
+              <color column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' />
+              <text column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' />
+              <text column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.5052486658096313' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-min' value='false' />
+                <format attr='mark-labels-range-scope' value='multi-mark' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{C531F3CA-9066-4905-8165-2BBF842D56E5}' />
+    </worksheet>
+    <worksheet name='IBIS Oven OEE (Other Rates)'>
       <table>
         <view>
           <datasources>
@@ -1120,94 +1202,7 @@
       </table>
       <simple-id uuid='{D94C2C21-92C4-4104-A19F-17DAF1FB4D3B}' />
     </worksheet>
-    <worksheet name='IBIS OEE (Pie)'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='IBIS_UTILIZATION (tableau-excel-file)' name='federated.1l5tphq1rd106t18wwosv0sw9n4m' />
-          </datasources>
-          <datasource-dependencies datasource='federated.1l5tphq1rd106t18wwosv0sw9n4m'>
-            <column datatype='real' default-format='p0.00%' name='[Idle Rate]' role='measure' type='quantitative' />
-            <column datatype='real' default-format='p0.00%' name='[Processing Rate]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
-            <column datatype='real' default-format='p0.00%' name='[Setup Rate]' role='measure' type='quantitative' />
-            <column datatype='real' default-format='p0.00%' name='[Waiting for Operator Rate]' role='measure' type='quantitative' />
-            <column datatype='real' default-format='p0.00%' name='[Waiting for Transporter Rate]' role='measure' type='quantitative' />
-            <column-instance column='[Idle Rate]' derivation='Attribute' name='[attr:Idle Rate:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Processing Rate]' derivation='Attribute' name='[attr:Processing Rate:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Setup Rate]' derivation='Attribute' name='[attr:Setup Rate:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Waiting for Operator Rate]' derivation='Attribute' name='[attr:Waiting for Operator Rate:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Waiting for Transporter Rate]' derivation='Attribute' name='[attr:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Waiting for Transporter Rate]' derivation='Sum' name='[sum:Waiting for Transporter Rate:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]'>
-            <groupfilter function='union' user:op='manual'>
-              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]&quot;' />
-              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;' />
-              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;' />
-              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;' />
-              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]&quot;' />
-            </groupfilter>
-          </filter>
-          <manual-sort column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' direction='ASC'>
-            <dictionary>
-              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]&quot;</bucket>
-              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]&quot;</bucket>
-              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]&quot;</bucket>
-              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]&quot;</bucket>
-              <bucket>&quot;[federated.1l5tphq1rd106t18wwosv0sw9n4m].[sum:Waiting for Transporter Rate:qk]&quot;</bucket>
-            </dictionary>
-          </manual-sort>
-          <slices>
-            <column>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='cell'>
-            <format attr='text-format' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' value='p0.00%' />
-          </style-rule>
-          <style-rule element='header'>
-            <format attr='width' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]' value='208' />
-          </style-rule>
-          <style-rule element='worksheet'>
-            <format attr='in-tooltip' field='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' value='false' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Pie' />
-            <mark-sizing mark-sizing-setting='marks-scaling-off' />
-            <encodings>
-              <wedge-size column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' />
-              <color column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' />
-              <text column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[Multiple Values]' />
-              <text column='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='size' value='1.5052486658096313' />
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='false' />
-                <format attr='mark-labels-mode' value='range' />
-                <format attr='mark-labels-range-min' value='false' />
-                <format attr='mark-labels-range-scope' value='multi-mark' />
-                <format attr='has-stroke' value='true' />
-                <format attr='stroke-color' value='#000000' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[federated.1l5tphq1rd106t18wwosv0sw9n4m].[none:Run Type:nk]</rows>
-        <cols />
-      </table>
-      <simple-id uuid='{C531F3CA-9066-4905-8165-2BBF842D56E5}' />
-    </worksheet>
-    <worksheet name='IBIS OEE (Utilisation Rate)'>
+    <worksheet name='IBIS Oven OEE (Utilisation Rate)'>
       <table>
         <view>
           <datasources>
@@ -1267,7 +1262,101 @@
       </table>
       <simple-id uuid='{78CB45BF-182D-4BDE-807C-9DE1B1CD980C}' />
     </worksheet>
-    <worksheet name='Mean Throughput'>
+    <worksheet name='Mean Cycle Time (of All Products)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='TIME_IN_SYSTEM (tableau-excel-file)' name='federated.1hnag2y1gk8xl71d07njy1cmprin' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1hnag2y1gk8xl71d07njy1cmprin'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Time In System]' role='measure' type='quantitative' />
+            <column-instance column='[Time In System]' derivation='Avg' name='[avg:Time In System:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' scope='cols' value='Mean Time In System (hrs)' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' />
+              <text column='[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-max' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1hnag2y1gk8xl71d07njy1cmprin].[none:Run Type:nk]</rows>
+        <cols>[federated.1hnag2y1gk8xl71d07njy1cmprin].[avg:Time In System:qk]</cols>
+      </table>
+      <simple-id uuid='{B24F3385-07F5-4F13-A38B-2D2A525468CC}' />
+    </worksheet>
+    <worksheet name='Mean Stay Time (of All Products)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='STAY_TIME (tableau-excel-file)' name='federated.14zcign1baqk781f0ifxx11tvy25' />
+          </datasources>
+          <datasource-dependencies datasource='federated.14zcign1baqk781f0ifxx11tvy25'>
+            <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Stay Time]' role='measure' type='quantitative' />
+            <column-instance column='[Stay Time]' derivation='Avg' name='[avg:Stay Time:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' scope='cols' value='Mean Stay Time (hrs)' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' />
+              <text column='[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-max' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.14zcign1baqk781f0ifxx11tvy25].[none:Run Type:nk]</rows>
+        <cols>[federated.14zcign1baqk781f0ifxx11tvy25].[avg:Stay Time:qk]</cols>
+      </table>
+      <simple-id uuid='{1EF37360-26D6-4CBC-897E-E2A03BF9E134}' />
+    </worksheet>
+    <worksheet name='Mean Throughput (of All Products)'>
       <table>
         <view>
           <datasources>
@@ -1277,7 +1366,6 @@
             <column datatype='string' name='[Run Type]' role='dimension' type='nominal' />
             <column datatype='real' name='[Throughput]' role='measure' type='quantitative' />
             <column-instance column='[Throughput]' derivation='Avg' name='[avg:Throughput:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Throughput]' derivation='Max' name='[max:Throughput:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <aggregation value='true' />
@@ -1290,7 +1378,7 @@
             <format attr='width' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]' value='104' />
           </style-rule>
           <style-rule element='mark'>
-            <encoding attr='color' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+            <encoding attr='color' field='[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]' palette='red_green_diverging_10_0' type='interpolated' />
           </style-rule>
         </style>
         <panes>
@@ -1300,7 +1388,7 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <color column='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' />
+              <color column='[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]' />
               <text column='[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]' />
             </encodings>
             <style>
@@ -1330,21 +1418,6 @@
             <column-instance column='[Run Type]' derivation='None' name='[none:Run Type:nk]' pivot='key' type='nominal' />
             <column-instance column='[Stay Time]' derivation='None' name='[none:Stay Time:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.14zcign1baqk781f0ifxx11tvy25].[Exclusions (Run Type,Stay Time)]'>
-            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
-              <groupfilter function='crossjoin'>
-                <groupfilter function='level-members' level='[none:Run Type:nk]' />
-                <groupfilter function='level-members' level='[none:Stay Time:qk]' />
-              </groupfilter>
-              <groupfilter function='crossjoin'>
-                <groupfilter function='member' level='[none:Run Type:nk]' member='&quot;output_min_size_22&quot;' />
-                <groupfilter function='member' level='[none:Stay Time:qk]' member='730.8680876102552' />
-              </groupfilter>
-            </groupfilter>
-          </filter>
-          <slices>
-            <column>[federated.14zcign1baqk781f0ifxx11tvy25].[Exclusions (Run Type,Stay Time)]</column>
-          </slices>
           <aggregation value='true' />
         </view>
         <style>
@@ -1612,7 +1685,7 @@
               </zone-style>
             </zone>
             <zone h='92335' id='6' type='layout-basic' w='99034' x='483' y='6736'>
-              <zone h='92335' id='8' name='Average Cycle Time' w='52345' x='483' y='6736'>
+              <zone h='92335' id='8' name='Mean Cycle Time (of All Products)' w='52345' x='483' y='6736'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1656,7 +1729,7 @@
                 </zone-style>
               </zone>
               <zone h='92335' id='6' type='layout-basic' w='89378' x='483' y='6736'>
-                <zone h='92335' id='11' name='IBIS OEE (Pie)' w='31577' x='58284' y='6736'>
+                <zone h='92335' id='11' name='IBIS Oven OEE' w='31577' x='58284' y='6736'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1664,7 +1737,7 @@
                     <format attr='margin' value='4' />
                   </zone-style>
                 </zone>
-                <zone h='46166' id='15' name='IBIS OEE (Utilisation Rate)' w='57801' x='483' y='6736'>
+                <zone h='46165' id='15' name='IBIS Oven OEE (Utilisation Rate)' w='57801' x='483' y='6736'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1672,7 +1745,7 @@
                     <format attr='margin' value='4' />
                   </zone-style>
                 </zone>
-                <zone h='46169' id='16' name='IBIS OEE (Other Rates)' w='57801' x='483' y='52902'>
+                <zone h='46170' id='16' name='IBIS Oven OEE (Other Rates)' w='57801' x='483' y='52901'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1683,7 +1756,7 @@
               </zone>
             </zone>
             <zone fixed-size='160' h='98142' id='12' is-fixed='true' param='vert' type='layout-flow' w='9656' x='89861' y='929'>
-              <zone h='8478' id='21' name='IBIS OEE (Utilisation Rate)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' type='color' w='9656' x='89861' y='929'>
+              <zone h='8478' id='21' name='IBIS Oven OEE (Utilisation Rate)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Processing Rate:qk]' type='color' w='9656' x='89861' y='929'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1691,7 +1764,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='8478' id='17' name='IBIS OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]' type='color' w='9656' x='89861' y='9407'>
+              <zone h='8478' id='17' name='IBIS Oven OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Setup Rate:qk]' type='color' w='9656' x='89861' y='9407'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1699,7 +1772,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='8478' id='18' name='IBIS OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]' type='color' w='9656' x='89861' y='17885'>
+              <zone h='8478' id='18' name='IBIS Oven OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Idle Rate:qk]' type='color' w='9656' x='89861' y='17885'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1707,7 +1780,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='8478' id='19' name='IBIS OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]' type='color' w='9656' x='89861' y='26363'>
+              <zone h='8478' id='19' name='IBIS Oven OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Operator Rate:qk]' type='color' w='9656' x='89861' y='26363'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1715,7 +1788,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='8478' id='20' name='IBIS OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]' type='color' w='9656' x='89861' y='34841'>
+              <zone h='8478' id='20' name='IBIS Oven OEE (Other Rates)' pane-specification-id='3' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[attr:Waiting for Transporter Rate:qk]' type='color' w='9656' x='89861' y='34841'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1723,7 +1796,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='3600' id='14' name='IBIS OEE (Pie)' pane-specification-id='0' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' type='color' w='9656' x='89861' y='43319'>
+              <zone h='3600' id='14' name='IBIS Oven OEE' pane-specification-id='0' param='[federated.1l5tphq1rd106t18wwosv0sw9n4m].[:Measure Names]' type='color' w='9656' x='89861' y='43319'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1821,7 +1894,7 @@
               </zone-style>
             </zone>
             <zone h='92335' id='6' type='layout-basic' w='99034' x='483' y='6736'>
-              <zone h='46166' id='9' name='Mean Throughput' w='51815' x='483' y='6736'>
+              <zone h='46164' id='9' name='Mean Throughput (of All Products)' w='51815' x='483' y='6736'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1829,7 +1902,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='46169' id='10' name='Cumulative Throughput' w='51815' x='483' y='52902'>
+              <zone h='46171' id='10' name='Cumulative Throughput (of All Products)' w='51815' x='483' y='52900'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1861,10 +1934,10 @@
   <windows saved-dpi-scale-factor='1.25' source-height='68'>
     <window class='dashboard' maximized='true' name='Throughput'>
       <viewpoints>
-        <viewpoint name='Cumulative Throughput'>
+        <viewpoint name='Cumulative Throughput (of All Products)'>
           <zoom type='fit-width' />
         </viewpoint>
-        <viewpoint name='Mean Throughput'>
+        <viewpoint name='Mean Throughput (of All Products)'>
           <zoom type='fit-width' />
         </viewpoint>
         <viewpoint name='Throughput by Product (Focused)'>
@@ -1876,10 +1949,10 @@
     </window>
     <window class='dashboard' name='Cycle Time'>
       <viewpoints>
-        <viewpoint name='Average Cycle Time'>
+        <viewpoint name='Cycle Time by Product (Focused)'>
           <zoom type='fit-width' />
         </viewpoint>
-        <viewpoint name='Cycle Time by Product (Focused)'>
+        <viewpoint name='Mean Cycle Time (of All Products)'>
           <zoom type='fit-width' />
         </viewpoint>
       </viewpoints>
@@ -1888,10 +1961,7 @@
     </window>
     <window class='dashboard' name='OEE'>
       <viewpoints>
-        <viewpoint name='IBIS OEE (Other Rates)'>
-          <zoom type='fit-width' />
-        </viewpoint>
-        <viewpoint name='IBIS OEE (Pie)'>
+        <viewpoint name='IBIS Oven OEE'>
           <zoom type='fit-width' />
           <highlight>
             <color-one-way>
@@ -1899,7 +1969,10 @@
             </color-one-way>
           </highlight>
         </viewpoint>
-        <viewpoint name='IBIS OEE (Utilisation Rate)'>
+        <viewpoint name='IBIS Oven OEE (Other Rates)'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='IBIS Oven OEE (Utilisation Rate)'>
           <zoom type='fit-width' />
         </viewpoint>
       </viewpoints>
@@ -1921,7 +1994,7 @@
     <window class='worksheet' name='Daily Throughput Trend'>
       <cards>
         <edge name='left'>
-          <strip size='196'>
+          <strip size='160'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -1956,10 +2029,10 @@
       </viewpoint>
       <simple-id uuid='{E2051377-6384-45DE-9F26-13D80871155D}' />
     </window>
-    <window class='worksheet' name='Cumulative Throughput'>
+    <window class='worksheet' name='Cumulative Throughput (of All Products)'>
       <cards>
         <edge name='left'>
-          <strip size='156'>
+          <strip size='160'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -1978,7 +2051,7 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' type='color' />
+            <card pane-specification-id='0' param='[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -1987,17 +2060,17 @@
         <highlight>
           <color-one-way>
             <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[:Measure Names]</field>
-            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]</field>
             <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</field>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[sum:Throughput:qk]</field>
           </color-one-way>
         </highlight>
       </viewpoint>
       <simple-id uuid='{28C6D6F8-445B-47C2-8BE7-C2C8FD99A519}' />
     </window>
-    <window class='worksheet' name='Mean Throughput'>
+    <window class='worksheet' name='Mean Throughput (of All Products)'>
       <cards>
         <edge name='left'>
-          <strip size='152'>
+          <strip size='160'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2016,7 +2089,7 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]' type='color' />
+            <card pane-specification-id='0' param='[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -2024,7 +2097,7 @@
         <zoom type='entire-view' />
         <highlight>
           <color-one-way>
-            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[max:Throughput:qk]</field>
+            <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[avg:Throughput:qk]</field>
             <field>[federated.1r8eeok10oifgk15vz67101w6xxt].[none:Run Type:nk]</field>
           </color-one-way>
         </highlight>
@@ -2095,7 +2168,7 @@
       </viewpoint>
       <simple-id uuid='{A8A6A7EA-3960-4439-B1A7-47636ACCD243}' />
     </window>
-    <window class='worksheet' name='Average Cycle Time'>
+    <window class='worksheet' name='Mean Cycle Time (of All Products)'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2194,7 +2267,7 @@
       </viewpoint>
       <simple-id uuid='{637640E6-B499-4130-A04C-7C9194C6BE05}' />
     </window>
-    <window class='worksheet' name='Average Stay Time'>
+    <window class='worksheet' name='Mean Stay Time (of All Products)'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2293,7 +2366,7 @@
       </viewpoint>
       <simple-id uuid='{5CC98F0B-3D8B-42AE-9C5D-D6242DCE2002}' />
     </window>
-    <window class='worksheet' name='IBIS OEE (Utilisation Rate)'>
+    <window class='worksheet' name='IBIS Oven OEE (Utilisation Rate)'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2335,7 +2408,7 @@
       </viewpoint>
       <simple-id uuid='{5432124F-F585-422C-B994-1A3FD49EFF10}' />
     </window>
-    <window class='worksheet' name='IBIS OEE (Other Rates)'>
+    <window class='worksheet' name='IBIS Oven OEE (Other Rates)'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2380,7 +2453,7 @@
       </viewpoint>
       <simple-id uuid='{AFCEED77-6AF9-4574-AAF8-9B44042FABD6}' />
     </window>
-    <window class='worksheet' name='IBIS OEE (Pie)'>
+    <window class='worksheet' name='IBIS Oven OEE'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2495,56 +2568,67 @@
   <thumbnails>
     <thumbnail height='192' name='Cycle Time' width='192'>
       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
-      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
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExT
-      AGKaAhDT/gcLa2gygXJNdwAAAABJRU5ErkJggg==
+      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
+      cU270zeIAAAAAElFTkSuQmCC
     </thumbnail>
     <thumbnail height='87' name='Daily Throughput Trend' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAABXCAYAAABSv0r8AAAACXBIWXMAABJ0AAASdAHeZh94
-      AAABF0lEQVR4nO3cMQ6AIBAAQTH+/7m0+AStJHFnaoprNtBwY621Dog6dw8AOwmANAGQJgDS
-      BECaAEgTAGmPAcw5v5gDtnADkCYA0gRAmgBIEwBpAiBNAKQJgDQBkCYA0gRAmgBIEwBpAiBN
-      AKQJgDQBkCYA0q43h3yL5K+G3aCUeQKRJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgT
-      AGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQ
-      JgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkC
-      IE0ApAmANAGQJgDSbnxGDmvNwqR7AAAAAElFTkSuQmCC
+      AAABEElEQVR4nO3coRHAMAwEwTj912uqlBBmg9utQOTmmdbMzANR7+0D4CYBkCYA0gRAmgBI
+      EwBpAiDtN4C994k74AoLQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAm
+      ANIEQJoASBMAactvUMosAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECa
+      AEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmA
+      NAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgT
+      AGkCIO0DzdsLhxBa/nUAAAAASUVORK5CYII=
     </thumbnail>
     <thumbnail height='192' name='OEE' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
@@ -2658,64 +2742,91 @@
     </thumbnail>
     <thumbnail height='192' name='Throughput' width='192'>
       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
-      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
+      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
     </thumbnail>
   </thumbnails>
 </workbook>

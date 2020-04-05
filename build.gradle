@@ -42,9 +42,6 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.0'
     implementation 'org.apache.commons:commons-collections4:4.4'
     implementation 'commons-io:commons-io:2.6'
-
-    testImplementation ('org.junit.jupiter:junit-jupiter:5.5.0')
-    testRuntime('org.junit.jupiter:junit-jupiter:5.5.0')
 }
 
 launch4j {
@@ -52,13 +49,8 @@ launch4j {
     mainClassName = project.mainClassName
     copyConfigurable = project.tasks.shadowJar.outputs.files
     jar =  "..\\libs\\IBIS_Simulation-1.0.0.jar"
-    bundledJrePath = '..\\runtime'
-    //dontWrapJar="true"
+    bundledJrePath = ".\\runtime"
     icon = "${projectDir}/src/main/resources/images/icon.ico"
-}
-
-checkstyle {
-    toolVersion = '8.23'
 }
 
 shadowJar {
@@ -68,14 +60,9 @@ shadowJar {
     archiveAppendix = null
 }
 
-test {
-    useJUnitPlatform()
-}
-
 group 'nusibis'
 
 application {
-    // Change this to your main class.
     mainClassName = "com.nusinfineon.Launcher"
 }
 
