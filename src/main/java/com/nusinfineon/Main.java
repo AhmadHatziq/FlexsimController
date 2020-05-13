@@ -50,9 +50,4 @@ public class Main extends Application {
     public void start(Stage stage) {
         ui.start(stage);
     }
-
-    @Override
-    public void stop() throws IOException {
-        jsonParser.storeData(core);
-    }
 }

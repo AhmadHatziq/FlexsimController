@@ -399,6 +399,7 @@ public class MainGui extends UiPart<Stage> {
             try {
                 core = jsonParser.loadData();
                 configureUi();
+                saveInputDataToCore();
             } catch (UnrecognizedPropertyException | JsonParseException e) {
                 showErrorBox(Messages.SAVE_FILE_WRONG_FORMAT_MESSAGE);
             } catch (FileNotFoundException e) {
@@ -411,52 +412,15 @@ public class MainGui extends UiPart<Stage> {
      * Closes the application.
      */
     @FXML
-    private void handleExit() {
+    private void handleExit() throws IOException {
         saveInputDataToCore();
+        jsonParser.storeData(core);
         primaryStage.hide();
     }
 
     @FXML
     public void handleModelExecution() throws IOException {
-        if (isBlankFiles()) {
-            showInvalidBox("File Directories cannot be blank!");
-        } else if (!isFoundFiles(flexsimExeLocation.getText())) {
-            showInvalidBox("FlexSim (.exe) address cannot be found!");
-        } else if (!isFoundFiles(modelFileLocation.getText())) {
-            showInvalidBox("Model (.fsm) address cannot be found!");
-        } else if (!isFoundFiles(inputFileLocation.getText())) {
-            showInvalidBox("Input (.xlsx) address cannot be found!");
-        } else if (!isFoundFiles(outputFileLocation.getText())) {
-            showInvalidBox("Output (.xlsx) address cannot be found!");
-        } else if (!isValidExeLocation()) {
-            showInvalidBox("FlexSim (.exe) must be the executable file: flexsim.exe");
-        } else if (!isValidExtension(modelFileLocation.getText(), "fsm")) {
-            showInvalidBox("Model (.fsm) must be a FlexSim model with extension .fsm!");
-        } else if (!isValidExtension(inputFileLocation.getText(), "xlsx")) {
-            showInvalidBox("Input (.xlsx) must be an Excel file with extension .xlsx!");
-        } else if (!isValidExtension(outputFileLocation.getText(), "xlsx")) {
-            showInvalidBox("Output (.xlsx) must be an Excel file with extension .xlsx!");
-        } else if (isBlankRunParams()) {
-            showInvalidBox("Run Parameters cannot be blank!");
-        } else if (isNotDouble(runSpeed.getText()) || isNotDouble(stopTime.getText())) {
-            showInvalidBox("Run Parameters must be numeric (integer/double)!");
-        } else if (!isLotSequenceSelected()) {
-            showInvalidBox("At least 1 Lot Sequencing Rule must be selected!");
-        } else if (!isValidMinBatchSize(batchSizeMin.getValueFactory().getValue())) {
-            showInvalidBox("Lowest batch size to run must be at least 1 and at most 24!");
-        } else if (!isValidMaxBatchSize(batchSizeMax.getValueFactory().getValue())) {
-            showInvalidBox("Highest batch size to run must be at least 1 and at most 24!");
-        } else if (!isValidMinMax(batchSizeMin.getValueFactory().getValue(),
-                batchSizeMax.getValueFactory().getValue())) {
-            showInvalidBox("Lowest batch size (" + batchSizeMin.getValueFactory().getValue() +
-                    ") cannot be larger than highest batch size (" + batchSizeMax.getValueFactory().getValue() + ")!");
-        } else if (!isValidStepSize(batchSizeStep.getValueFactory().getValue(),
-                batchSizeMin.getValueFactory().getValue(),
-                batchSizeMax.getValueFactory().getValue())) {
-            showInvalidBox("Step Size between Runs cannot exceed " +
-                    Math.max(1, (batchSizeMax.getValueFactory().getValue() - batchSizeMin.getValueFactory().getValue()))
-                    + "!");
-        } else {
+        if (inputValidated()) {
             if (confirmRun(batchSizeMin.getValueFactory().getValue(), batchSizeMax.getValueFactory().getValue(),
                     batchSizeStep.getValueFactory().getValue(), getLotSequencingRules())) {
                 Alert waitAlert = getWaitAlert();
@@ -475,7 +439,7 @@ public class MainGui extends UiPart<Stage> {
     }
 
     /**
-     * Saves input data to core.
+     * Saves input data to core
      */
     private void saveInputDataToCore() {
         core.inputData(flexsimExeLocation.getText(), modelFileLocation.getText(), inputFileLocation.getText(),
@@ -488,6 +452,95 @@ public class MainGui extends UiPart<Stage> {
                 getSelectedLotSelectionCriteria(lotSelectionCriteria),
                 getSelectedTrolleyLocationSelectCriteria(trolleyLocationSelectCriteria),
                 getSelectedBibLoadOnLotCriteria(bibLoadOnLotCriteria));
+    }
+
+    /**
+     * Input validation
+     */
+    private boolean inputValidated() {
+        String errorMessage = "";
+        boolean execute = true;
+
+        if (!isLotSequenceSelected()) {
+            errorMessage = errorMessage + "At least 1 Lot Sequencing Rule must be selected!\n";
+            execute = false;
+        }
+        if (!isValidMinBatchSize(batchSizeMin.getValueFactory().getValue())) {
+            errorMessage = errorMessage + "Lowest batch size to run must be at least 1 and at most 24!\n";
+            execute = false;
+        }
+        if (!isValidMaxBatchSize(batchSizeMax.getValueFactory().getValue())) {
+            errorMessage = errorMessage + "Highest batch size to run must be at least 1 and at most 24!\n";
+            execute = false;
+        }
+        if (!isValidMinMax(batchSizeMin.getValueFactory().getValue(),
+                batchSizeMax.getValueFactory().getValue())) {
+            errorMessage = errorMessage + "Lowest batch size (" + batchSizeMin.getValueFactory().getValue() +
+                    ") cannot be larger than highest batch size (" + batchSizeMax.getValueFactory().getValue() + ")!\n";
+            execute = false;
+        } else if (!isValidStepSize(batchSizeStep.getValueFactory().getValue(),
+                batchSizeMin.getValueFactory().getValue(),
+                batchSizeMax.getValueFactory().getValue())) {
+            errorMessage = errorMessage + "Step Size between Runs (BIB Batch Size) cannot exceed " +
+                    Math.max(1, (batchSizeMax.getValueFactory().getValue() - batchSizeMin.getValueFactory().getValue()))
+                    + "!\n";
+            execute = false;
+        }
+        if (isBlankRunParams()) {
+            errorMessage = errorMessage + "Run Parameters cannot be blank!\n";
+            execute = false;
+        } else if (isNotDouble(runSpeed.getText()) || isNotDouble(stopTime.getText())) {
+            errorMessage = errorMessage + "Run Parameters must be numeric (integer/double)!\n";
+            execute = false;
+        } else if (!isValidRunParams(runSpeed.getText(), stopTime.getText())) {
+            errorMessage = errorMessage + "Run Speed must be smaller than Stop Time!\n";
+            execute = false;
+        }
+        if (flexsimExeLocationIsBlank()) {
+            errorMessage = errorMessage + "FlexSim (.exe) directory is blank!\n";
+            execute = false;
+        } else if (!isFoundFiles(flexsimExeLocation.getText())) {
+            errorMessage = errorMessage + "FlexSim (.exe) address cannot be found!\n";
+            execute = false;
+        } else if (!isValidExeLocation()) {
+            errorMessage = errorMessage + "FlexSim (.exe) must be the executable file: flexsim.exe\n";
+            execute = false;
+        }
+        if (modelFileLocationIsBlank()) {
+            errorMessage = errorMessage + "Model (.fsm) directory is blank!\n";
+            execute = false;
+        } else if (!isFoundFiles(modelFileLocation.getText())) {
+            errorMessage = errorMessage + "Model (.fsm) address cannot be found!\n";
+            execute = false;
+        } else if (!isValidExtension(modelFileLocation.getText(), "fsm")) {
+            errorMessage = errorMessage + "Model (.fsm) must be a FlexSim model with extension .fsm!\n";
+            execute = false;
+        }
+        if (inputFileLocationIsBlank()) {
+            errorMessage = errorMessage + "Input (.xlsx) directory is blank!\n";
+            execute = false;
+        } else if (!isFoundFiles(inputFileLocation.getText())) {
+            errorMessage = errorMessage + "Input (.xlsx) address cannot be found!\n";
+            execute = false;
+        } else if (!isValidExtension(inputFileLocation.getText(), "xlsx")) {
+            errorMessage = errorMessage + "Input (.xlsx) must be an Excel file with extension .xlsx!\n";
+            execute = false;
+        }
+        if (outputFileLocationIsBlank()) {
+            errorMessage = errorMessage + "Output (.xlsx) directory is blank!\n";
+            execute = false;
+        } else if (!isFoundFiles(outputFileLocation.getText())) {
+            errorMessage = errorMessage + "Output (.xlsx) address cannot be found!\n";
+            execute = false;
+        } else if (!isValidExtension(outputFileLocation.getText(), "xlsx")) {
+            errorMessage = errorMessage + "Output (.xlsx) must be an Excel file with extension .xlsx!\n";
+            execute = false;
+        }
+
+        if (!execute) {
+            showInvalidBox(errorMessage);
+        }
+        return execute;
     }
 
     /**
@@ -679,14 +732,47 @@ public class MainGui extends UiPart<Stage> {
     }
 
     /**
-     * Returns true if any of the file locations are blank.
+     * Returns true if Flexsim exe location is blank
      * @return Boolean.
      */
-    private boolean isBlankFiles() {
-        if (flexsimExeLocation.getText() == null || flexsimExeLocation.getText().isBlank() ||
-                modelFileLocation.getText() == null || modelFileLocation.getText().isBlank() ||
-                inputFileLocation.getText() == null || inputFileLocation.getText().isBlank() ||
-                outputFileLocation.getText() == null || outputFileLocation.getText().isBlank()) {
+    private boolean flexsimExeLocationIsBlank() {
+        if (flexsimExeLocation.getText() == null || flexsimExeLocation.getText().isBlank()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns true if Model file location is blank
+     * @return Boolean.
+     */
+    private boolean modelFileLocationIsBlank() {
+        if (modelFileLocation.getText() == null || modelFileLocation.getText().isBlank()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns true if Input file location is blank
+     * @return Boolean.
+     */
+    private boolean inputFileLocationIsBlank() {
+        if (inputFileLocation.getText() == null || inputFileLocation.getText().isBlank()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns true if Output file location is blank
+     * @return Boolean.
+     */
+    private boolean outputFileLocationIsBlank() {
+        if (outputFileLocation.getText() == null || outputFileLocation.getText().isBlank()) {
             return true;
         } else {
             return false;
@@ -782,7 +868,7 @@ public class MainGui extends UiPart<Stage> {
      * @param stepSize representing batch step size.
      * @param minBatchSize representing minimum batch size.
      * @param maxBatchSize representing maximum batch size.
-     * @return Boolean
+     * @return Boolean.
      */
     private boolean isValidStepSize(int stepSize, int minBatchSize, int maxBatchSize) {
         try {
@@ -819,7 +905,7 @@ public class MainGui extends UiPart<Stage> {
     /**
      * Follows the same logic as "isValidMinBatchSize".
      * @param maxBatchSize representing Batch Max Size.
-     * @return Boolean
+     * @return Boolean.
      */
     private boolean isValidMaxBatchSize(int maxBatchSize){
         return isValidMinBatchSize(maxBatchSize);
@@ -836,6 +922,20 @@ public class MainGui extends UiPart<Stage> {
             return false;
         } catch (NumberFormatException e) {
             return true;
+        }
+    }
+
+    /**
+     * Returns true if the argument string can be converted to a Double primitive data type.
+     * @param runSpeed Run Speed string
+     * @param stopTime Stop Time string
+     * @return Boolean.
+     */
+    private boolean isValidRunParams(String runSpeed, String stopTime) {
+        if (Double.parseDouble(runSpeed) <= Double.parseDouble(stopTime)) {
+            return true;
+        } else {
+            return false;
         }
     }
 
